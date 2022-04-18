@@ -1,0 +1,34 @@
+[ 
+  { 
+    "label": "Greeting text", 
+    "name": "greeting", 
+    "type": "text", 
+    "default": "Hello world!", 
+    "description": "The greeting text displayed to the end user."
+  }, 
+  { 
+    "label": "Greeting textx", 
+    "name": "greeting2", 
+    "type": "text", 
+    "default": "Hello worldx!", 
+    "description": "The greeting text displayed to the end user."
+  },
+  {
+    "label": "Card image",
+    "name": "image",
+    "type": "image",
+    "optional": true,
+    "description": "Image shown on card, optional. Without this the card will show just the text."
+  }, 
+  {
+    "label": "Check Boolean",
+    "name": "isBoolean",
+    "type": "boolean",
+    "description": "Image shown on card, optional. Without this the card will show just the text."
+  },
+  {
+    "name": "audioFiles",
+    "type": "audio",
+    "label": "Audio files"
+  }
+]

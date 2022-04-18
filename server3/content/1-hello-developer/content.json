@@ -1,0 +1,20 @@
+{
+  "greeting": "Hello worldx",
+  "image": {
+    "path": "earth.jpg",
+    "width": 300,
+    "height": 300
+  },
+  "isBoolean": true,
+  "audioFiles": [
+    {
+      "path": "audios/ses.mp3",
+      "mime": "audio/mpeg",
+      "copyright": {
+        "license": "MIT"
+      }
+    }
+  ]
+  
+}
+
