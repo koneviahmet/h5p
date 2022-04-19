@@ -40,12 +40,18 @@ H5P.GreetingCard = (function ($) {
         load: function () {
           self.trigger('resize')
         }
-      }))
+      })).on('click', function () {
+        alert('greeting card')
+      })
     }
+
+
+
     // Add greeting text.
     $container.append('<div class="greeting-text">' + this.options.greeting + '</div>');
 
   };
+  
  
   return C;
 })(H5P.jQuery);

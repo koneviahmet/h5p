@@ -8,6 +8,8 @@
     "author": "Amendor AS",
     "license": "cc-by-sa",
     "machineName": "H5P.GreetingCard",
+    "embedTypes": ["div"], 
+    "fullscreen": 1,
     "coreApi": {
       "majorVersion": 1,
       "minorVersion": 0
@@ -17,5 +19,12 @@
     ],
     "preloadedCss": [
       {"path": "css/greetingcard.css"}
+    ],
+    "preloadedDependencies": [
+      {
+        "machineName": "FontAwesome",
+        "majorVersion": 3,
+        "minorVersion": 1
+      }
     ]
   }
