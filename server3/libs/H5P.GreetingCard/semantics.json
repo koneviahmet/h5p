@@ -14,11 +14,12 @@
     "description": "The greeting text displayed to the end user."
   },
   {
-    "label": "Card image",
-    "name": "image",
-    "type": "image",
-    "optional": true,
-    "description": "Image shown on card, optional. Without this the card will show just the text."
+    "label": "Quiz",
+    "name": "quiz",
+    "type": "library",
+    "options": [
+      "H5P.MarkTheWords 1.5"
+    ]
   }, 
   {
     "label": "Check Boolean",

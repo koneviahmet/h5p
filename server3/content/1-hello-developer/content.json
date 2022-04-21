@@ -14,7 +14,23 @@
         "license": "MIT"
       }
     }
-  ]
+  ],
+  "quiz":{
+    "library":"H5P.MarkTheWords 1.5",
+    "params":{
+      "checkAnswerButton": "check",
+      "tryAgainButton": "Retry",
+      "showSolutionButton": "Show Solution",
+      "score": "scorun @score / $total",
+      "behavior": {
+        "enableRetry": true,
+        "enableSolutionsButton": true
+      },
+      "taskDescription":"<p>bas adamım Normay</p>",
+      "textField":"*Norway*, and *Sweden*"
+      
+    }
+  }
   
 }
 

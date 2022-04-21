@@ -8,7 +8,8 @@ H5P.GreetingCard = (function ($) {
     // Extend defaults with provided options
     this.options = $.extend(true, {}, {
       greeting: 'Hello world!',
-      image: null
+      image: null,
+      quiz: null
     }, options);
     // Keep provided id.
     this.id = id;
@@ -40,15 +41,31 @@ H5P.GreetingCard = (function ($) {
         load: function () {
           self.trigger('resize')
         }
-      })).on('click', function () {
-        alert('greeting card')
-      })
+      }))
+
+
+      // })).on('click', function () {
+      //   alert('greeting card')
+      // })
     }
-
-
 
     // Add greeting text.
     $container.append('<div class="greeting-text">' + this.options.greeting + '</div>');
+
+
+    //add quiz
+    var quiz = H5P.newRunnable(this.options.quiz, this.id);
+    var $quizContainer = $('<div>', {
+      'class': 'h5p-webinar-quiz'
+    })
+    
+    quiz.on('resize', function(){
+      self.trigger('resize');
+    })
+
+    quiz.attach($quizContainer);
+    $quizContainer.appendTo($container);
+
 
   };
   
