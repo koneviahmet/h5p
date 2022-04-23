@@ -1,0 +1,23 @@
+{
+  "title": "Greeting card",
+  "language": "en",
+  "author": "Tutorial user",
+  "license": "CC BY-SA",
+  "licenseVersion": "4.0",
+  "authors":[{
+    "name":"The author name",
+    "role":"Author"
+  }],
+  "preloadedDependencies": [{
+    "machineName": "H5P.Alphabet",
+    "majorVersion": 1,
+    "minorVersion": 0 
+  },
+  {
+    "machineName": "H5P.Audio",
+    "majorVersion": 1,
+    "minorVersion": 4 
+  }],
+  "mainLibrary": "H5P.Alphabet",
+  "embedTypes": ["div"]
+}
