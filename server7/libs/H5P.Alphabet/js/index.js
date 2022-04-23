@@ -9,6 +9,8 @@ H5P.Alphabet = (function ($) {
     this.options = $.extend(true, {}, {
       greeting: 'Hello world!',
       audio: null,
+      audioTrue: null,
+      audioFalse: null,
       image: null,
       isTrue: null,
 
@@ -55,13 +57,40 @@ H5P.Alphabet = (function ($) {
 
     // Add greeting text.
     $container.append('<div class="greeting-text">' + this.options.greeting + '</div>');
-    $container.append('<button class="stop">stop</button>');
 
     var playButton = $('<button/>', {
       'class': "play",
       'aria-label': "label?"
-    }).html("play")
+    }).html("dinle")
     $container.append(playButton);
+
+    playButton.on('click', function(){
+      audio.play();
+    })
+
+
+    //audio true and false
+    var audioTrue = H5P.newRunnable(this.options.audioTrue, this.id);
+    var $audioTrueContainer = $('<div>', {
+      'class': 'h5p-webinar-quiz'
+    })
+    audioTrue.on('resize', function(){
+      self.trigger('resize');
+    })
+    audioTrue.attach($audioTrueContainer);
+    $audioTrueContainer.appendTo($container);
+
+    var audioFalse = H5P.newRunnable(this.options.audioFalse, this.id);
+    var $audioFalseContainer = $('<div>', {
+      'class': 'h5p-webinar-quiz'
+    })
+    audioFalse.on('resize', function(){
+      self.trigger('resize');
+    })
+    audioFalse.attach($audioFalseContainer);
+    $audioFalseContainer.appendTo($container);
+
+
 
     //add quiz
     var audio = H5P.newRunnable(this.options.audio, this.id);
@@ -76,24 +105,40 @@ H5P.Alphabet = (function ($) {
     audio.attach($quizContainer);
     $quizContainer.appendTo($container);
 
-    playButton.on('click', function(){
-      audio.play();
-    })
-
+ 
     audio.audio.addEventListener('ended', function () {
+      $('.h5p-true-false-answer').removeClass('h5p-true-false-answer-wait')
       console.log("ses bitti");
     })
 
     audio.audio.addEventListener('play', function () {
+      $('.h5p-true-false-answer').addClass('h5p-true-false-answer-wait')
+      console.log("ses başladı");
+    })
+
+    audioTrue.audio.addEventListener('ended', function () {
+      $('.h5p-true-false-answer').removeClass('h5p-true-false-answer-wait')
+      console.log("ses bitti");
+    })
+
+    audioTrue.audio.addEventListener('play', function () {
+      $('.h5p-true-false-answer').addClass('h5p-true-false-answer-wait')
+      console.log("ses başladı");
+    })
+
+    audioFalse.audio.addEventListener('ended', function () {
+      $('.h5p-true-false-answer').removeClass('h5p-true-false-answer-wait')
+      console.log("ses bitti");
+    })
+
+    audioFalse.audio.addEventListener('play', function () {
+      $('.h5p-true-false-answer').addClass('h5p-true-false-answer-wait')
       console.log("ses başladı");
     })
 
 
+   
 
-    audio.audio.addEventListener('pause', function () {
-      console.log("ses durdu");
-    })
-    
     audio.on("play", function(){
       console.log("başladı");
     })
@@ -116,36 +161,26 @@ H5P.Alphabet = (function ($) {
     isTrue.attach($trueContainer);
     $trueContainer.appendTo($container);
     
-    var trueButton = $('<button/>', {
-      'class': "true",
-      'aria-label': "label?"
-    }).html("Doğru Ulen")
-    .on('click', function(){
-      console.log("doğru mu acaba");
-      console.log(isTrue);
+
+
+    $('.h5p-question-introduction').hide();
+    $('.h5p-question-check-answer').hide();
+    $('.h5p-audio-inner').hide();
+    $('.h5p-true-false-answer').on('click', function(){
       var selectAnswer = isTrue.getCurrentState();
       var trueAnswer   = isTrue.getAnswerGiven();
-      console.log("selectAnswer", selectAnswer);
-      console.log("getAnswerGiven", trueAnswer);
-
-      $('.h5p-question-check-answer').trigger('click');
-    })
-
-    
-    $('.h5p-true-false-answer').on('click', function(){
-      var index = $(this).index();
-      console.log("index",index);
-      //sonuç açıkla butonu
-      $('.h5p-question-check-answer').trigger('click');
+      if (trueAnswer == selectAnswer.answer) {
+        console.log("doğru yaptın");
+        audioTrue.play()
+        $('.h5p-question-check-answer').trigger('click');
+      }else{
+        console.log("yanlış yaptın");
+        audioFalse.play()
+      } 
     });
 
-    $container.append(trueButton);
 
-    var falseButton = $('<button/>', {
-      'class': "false",
-      'aria-label': "label?"
-    }).html("Yanlış Ulen")
-    $container.append(falseButton);
+
 
 
 

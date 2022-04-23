@@ -30,7 +30,23 @@
   {
     "name": "audio",
     "type": "library",
-    "label": "Task",
+    "label": "Ana Ses",
+    "options": [
+      "H5P.Audio 1.4"
+    ]
+  },
+  {
+    "name": "audioTrue",
+    "type": "library",
+    "label": "Doğru Ses",
+    "options": [
+      "H5P.Audio 1.4"
+    ]
+  },
+  {
+    "name": "audioFalse",
+    "type": "library",
+    "label": "Yanlış Ses",
     "options": [
       "H5P.Audio 1.4"
     ]

@@ -9,16 +9,39 @@
     "library":"H5P.Audio 1.4",
     "params":{
       "playerMode": "minimalistic",
-      "fitToWrapper": false,
-      "controls": true,
-      "autoplay": false,
-      "playAudio": "Ses dosyasını başlat",
-      "pauseAudio": "Ses dosyasını duraklat",
-      "contentName": "Ses",
-      "audioNotSupported": "Tarayıcınız bu ses dosyasını desteklemiyor",
       "files": [
         {
           "path": "audios/ari.mp3",
+          "mime": "audio/mpeg",
+          "copyright": {
+            "license": "U"
+          }
+        }
+      ]
+    }
+  },
+  "audioTrue":{
+    "library":"H5P.Audio 1.4",
+    "params":{
+      "playerMode": "minimalistic",
+      "files": [
+        {
+          "path": "audios/tebrikler.mp3",
+          "mime": "audio/mpeg",
+          "copyright": {
+            "license": "U"
+          }
+        }
+      ]
+    }
+  },
+  "audioFalse":{
+    "library":"H5P.Audio 1.4",
+    "params":{
+      "playerMode": "minimalistic",
+      "files": [
+        {
+          "path": "audios/yanlis.mp3",
           "mime": "audio/mpeg",
           "copyright": {
             "license": "U"
