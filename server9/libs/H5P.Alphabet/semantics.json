@@ -14,7 +14,7 @@
       "importance": "medium",
       "fields": [
         {
-          "name": "title",
+          "name": "description",
           "type": "text",
           "widget": "html",
           "label": "Line of text",
@@ -63,8 +63,7 @@
               "value": "false",
               "label": "Yanlış"
             }
-          ],
-          "default": "true"
+          ]
         }
       ]
     }

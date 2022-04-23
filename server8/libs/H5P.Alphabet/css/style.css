@@ -1,0 +1,11 @@
+.answer-button-wait{
+  pointer-events:none;
+  color:#AAA;
+  background:#F5F5F5;
+}
+
+.answer-play-wait{
+  pointer-events:none;
+  color:#AAA;
+  background:#F5F5F5;
+}

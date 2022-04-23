@@ -1,7 +1,7 @@
 {
   "alphabet": [
     {
-      "title": "Hello worldx",
+      "description": "Hello worldx",
       "image": {
         "path": "images/ari.jpg",
         "width": 300,
@@ -14,6 +14,59 @@
           "files": [
             {
               "path": "audios/ari.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "audioTrue":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/tebrikler.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "audioFalse":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/yanlis.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "description": "Açıklama 2",
+      "image": {
+        "path": "images/cat.jpg",
+        "width": 300,
+        "height": 300
+      },
+      "audio":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/kedi.mp3",
               "mime": "audio/mpeg",
               "copyright": {
                 "license": "U"

@@ -1,5 +1,5 @@
 {
-  "title": "Alphabet",
+  "title": "Ahmet",
   "contentType": "Static content",
   "description": "Simple library that displays text.",
   "majorVersion": 1,
@@ -25,7 +25,7 @@
     {
       "machineName": "H5P.Audio",
       "majorVersion": 1,
-      "minorVersion": 4
+      "minorVersion": 5
     }
   ],
   "metadataSettings": {

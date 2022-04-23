@@ -1,0 +1,53 @@
+[
+  {
+    "name": "text",
+    "type": "text",
+    "label": "Text"
+  },
+  { 
+    "label": "Images", 
+    "name": "image", 
+    "type": "image" 
+  },
+  {
+    "name": "audio",
+    "type": "library",
+    "label": "Audio",
+    "options": [
+      "H5P.Audio 1.4"
+    ]
+  },
+  {
+    "name": "audioTrue",
+    "type": "library",
+    "label": "Audio True",
+    "options": [
+      "H5P.Audio 1.4"
+    ]
+  },
+  {
+    "name": "audioFalse",
+    "type": "library",
+    "label": "Audio False",
+    "options": [
+      "H5P.Audio 1.4"
+    ]
+  },
+  {
+    "name": "correct",
+    "type": "select",
+    "label": "Progress indicator",
+    "description": "Question set progress indicator style.",
+    "options": [
+      {
+        "value": "true",
+        "label": "Doğru"
+      },
+      {
+        "value": "false",
+        "label": "Yanlış"
+      }
+    ],
+    "default": "true"
+  } 
+]
