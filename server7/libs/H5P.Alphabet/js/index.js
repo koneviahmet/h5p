@@ -10,6 +10,7 @@ H5P.Alphabet = (function ($) {
       greeting: 'Hello world!',
       audio: null,
       image: null,
+      isTrue: null,
 
     }, options);
     // Keep provided id.
@@ -87,7 +88,6 @@ H5P.Alphabet = (function ($) {
       console.log("ses başladı");
     })
 
-  
 
 
     audio.audio.addEventListener('pause', function () {
@@ -102,6 +102,50 @@ H5P.Alphabet = (function ($) {
       audio.stop();
     })
 
+
+    //add isTrue
+    var isTrue = H5P.newRunnable(this.options.isTrue, this.id);
+    var $trueContainer = $('<div>', {
+      'class': 'h5p-webinar-isTrue'
+    })
+    
+    isTrue.on('resize', function(){
+      self.trigger('resize');
+    })
+
+    isTrue.attach($trueContainer);
+    $trueContainer.appendTo($container);
+    
+    var trueButton = $('<button/>', {
+      'class': "true",
+      'aria-label': "label?"
+    }).html("Doğru Ulen")
+    .on('click', function(){
+      console.log("doğru mu acaba");
+      console.log(isTrue);
+      var selectAnswer = isTrue.getCurrentState();
+      var trueAnswer   = isTrue.getAnswerGiven();
+      console.log("selectAnswer", selectAnswer);
+      console.log("getAnswerGiven", trueAnswer);
+
+      $('.h5p-question-check-answer').trigger('click');
+    })
+
+    
+    $('.h5p-true-false-answer').on('click', function(){
+      var index = $(this).index();
+      console.log("index",index);
+      //sonuç açıkla butonu
+      $('.h5p-question-check-answer').trigger('click');
+    });
+
+    $container.append(trueButton);
+
+    var falseButton = $('<button/>', {
+      'class': "false",
+      'aria-label': "label?"
+    }).html("Yanlış Ulen")
+    $container.append(falseButton);
 
 
 

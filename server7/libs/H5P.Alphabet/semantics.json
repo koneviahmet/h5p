@@ -34,5 +34,13 @@
     "options": [
       "H5P.Audio 1.4"
     ]
+  },
+  {
+    "name": "isTrue",
+    "type": "library",
+    "label": "isTrue",
+    "options": [
+      "H5P.TrueFalse 1.5"
+    ]
   }
 ]

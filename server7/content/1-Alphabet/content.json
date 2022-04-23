@@ -26,6 +26,13 @@
         }
       ]
     }
+  },
+  "isTrue":{
+    "library":"H5P.TrueFalse 1.5",
+    "params":{
+      "correct": true,
+      "question": "<p>2+2 = 4</p>\n"
+    }
   }
 }
 
