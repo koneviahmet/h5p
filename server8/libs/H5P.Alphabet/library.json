@@ -8,6 +8,7 @@
   "runnable": 1,
   "machineName": "H5P.Alphabet",
   "author": "Joubelx",
+  "embedTypes": ["iframe"],
   "preloadedJs": [
     {
       "path": "js/index.js"
