@@ -24,11 +24,6 @@ H5P.Alphabet = (function ($) {
     var id   = this.id
     var selectIndex = 0;
 
-    var descriptionF = null;
-    var imageF = null;
-    var audioF = null;
-    var audioTrueF = null;
-    var audioFalseF = null;
 
 
     // Set class on container to identify it as a greeting card
@@ -41,12 +36,14 @@ H5P.Alphabet = (function ($) {
     var answerContent         = $('<div>', {'class': "alphabet-answer-content"})
     var listenContent         = $('<div>', {'class': "alphabet-listen-content"})
     var audioContent          = $('<div>', {'class': "alphabet-audio-content"})
+    var videoContent          = $('<div>', {'class': "alphabet-video-content"})
+    var resultContent          = $('<div>', {'class': "alphabet-result-content"})
 
     
     var nextButton = $('<button>', {'class': "alphabet-next-button"}).html("İleri")
     var backButton = $('<button>', {'class': "alphabet-back-button"}).html("Geri")
     
-
+    $container.append(resultContent);
     nextBackButtonContent.append(nextButton)
     nextBackButtonContent.append(backButton)
     $container.append(nextBackButtonContent);
@@ -55,6 +52,9 @@ H5P.Alphabet = (function ($) {
     $container.append(listenContent);
     $container.append(answerContent);
     $container.append(audioContent);
+    $container.append(videoContent);
+
+
 
     nextButton.on("click", function(){
       selectIndex = selectIndex + 1
@@ -85,29 +85,41 @@ H5P.Alphabet = (function ($) {
       }
 
     }
+
+    this.$slides = [];
+    this.$choices = $('<div>', {
+      'class': 'h5p-sc-set h5p-sc-animate'
+    });
+
+
+
+    var $scoreBar = H5P.JoubelUI.createScoreBar(10, 'This is a scorebar');
+    $scoreBar.setScore(5)
+    var $button = H5P.JoubelUI.createButton({
+      title: 'Retry',
+      click: function (event) {
+        console.log('Retry was clicked');
+      }
+    });
+    console.log($scoreBar);
+    resultContent.html($scoreBar.$scoreBar);
+
     
     function setAlphabets(index){
+
+
       selectIndex = index
-      console.log(self.options);
       setNextBackButton()
 
       var alphabet = self.options.alphabet[index]
-      
-      descriptionF   =  alphabet.description
-      imageF         =  alphabet.image
-      audioF         =  alphabet.audio
-      audioTrueF     =  alphabet.audioTrue
-      audioFalseF    =  alphabet.audioFalse
-      correct        =  alphabet.correct
-
 
       //add images
-      descriptionContent.html(descriptionF);
-      if (imageF && imageF.path) {
+      descriptionContent.html(alphabet.description);
+      if (alphabet.image && alphabet.image.path) {
         ImageContent.html($('<img>',{
           class: 'alphabet-image',
           alt: "image alt",
-          src: H5P.getPath(imageF.path, id),
+          src: H5P.getPath(alphabet.image.path, id),
           load: function () {
             self.trigger('resize')
           }
@@ -115,35 +127,30 @@ H5P.Alphabet = (function ($) {
       }
 
       //sesler
-      var audio       = H5P.newRunnable(audioF, id);
-      var audioTrue   = H5P.newRunnable(audioTrueF, id);
-      var audioFalse  = H5P.newRunnable(audioFalseF, id);
-      
-      var $audioContainer = $('<div>', {
-        'class': 'h5p-webinar-quiz'
-      })
-  
-      audio.on('resize', function(){
-        self.trigger('resize');
-      })
-      audio.attach($audioContainer);
+      var audio       = H5P.newRunnable(alphabet.audio, id);
+      var audioTrue   = H5P.newRunnable(alphabet.audioTrue, id);
+      var audioFalse  = H5P.newRunnable(alphabet.audioFalse, id);
+      var video       = H5P.newRunnable(alphabet.video, id);
 
+      var $videoContainer = $('<div>', {'class': 'h5p-video-container'})
+      video.on('resize', function(){self.trigger('resize');})
+      video.attach($videoContainer);
+      videoContent.html($videoContainer);
    
 
-      var $audioTrueContainer = $('<div>', {
-        'class': 'h5p-webinar-quiz'
-      })
-      audioTrue.on('resize', function(){
-        self.trigger('resize');
-      })
+      var $audioContainer = $('<div>', {'class': 'h5p-webinar-quiz'})
+  
+      audio.on('resize', function(){ self.trigger('resize');})
+      audio.attach($audioContainer);
+      
+   
+      var $audioTrueContainer = $('<div>', { 'class': 'h5p-webinar-quiz'})  
+      audioTrue.on('resize', function(){self.trigger('resize');})
       audioTrue.attach($audioTrueContainer);
 
-      var $audioFalseContainer = $('<div>', {
-        'class': 'h5p-webinar-quiz'
-      })
-      audioFalse.on('resize', function(){
-        self.trigger('resize');
-      })
+
+      var $audioFalseContainer = $('<div>', {'class': 'h5p-webinar-quiz'})
+      audioFalse.on('resize', function(){self.trigger('resize');})
       audioFalse.attach($audioFalseContainer);
 
 
@@ -220,7 +227,7 @@ H5P.Alphabet = (function ($) {
       function checkAnswer(selectAnswer){
         playAnswer()
       
-        if (selectAnswer == correct) {
+        if (selectAnswer == alphabet.correct) {
           audioTrue.play()
         }else{
           audioFalse.play()
