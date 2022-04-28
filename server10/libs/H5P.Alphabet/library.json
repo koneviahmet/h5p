@@ -1,0 +1,41 @@
+{
+  "title": "Alphabet",
+  "contentType": "Static content",
+  "description": "Simple library that displays text.",
+  "majorVersion": 1,
+  "minorVersion": 0,
+  "patchVersion": 1,
+  "runnable": 1,
+  "machineName": "H5P.Alphabet",
+  "author": "Joubelx",
+  "embedTypes": ["iframe"],
+  "preloadedJs": [
+    {
+      "path": "js/index.js"
+    }
+  ],
+  "preloadedCss": [
+    {
+      "path": "css/style.css"
+    },
+    {
+      "path": "css/animate.css"
+    }
+  ],
+  "preloadedDependencies": [
+    {
+      "machineName": "H5P.Audio",
+      "majorVersion": 1,
+      "minorVersion": 4
+    },
+    {
+      "machineName": "H5P.Video",
+      "majorVersion": 1,
+      "minorVersion": 6
+    }
+  ],
+  "metadataSettings": {
+    "disable": 0,
+    "disableExtraTitleField": 1
+  }
+}

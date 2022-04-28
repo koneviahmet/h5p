@@ -1,0 +1,139 @@
+{
+  "alphabet": [
+    {
+      "description": "Hello worldx",
+      "image": {
+        "path": "images/ari.jpg",
+        "width": 300,
+        "height": 300
+      },
+      "audio":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/ari.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },      
+      "video":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "startScreenOptions": {
+            "title": "Etkileşimli video",
+            "hideStartTitle": false
+          },
+          "textTracks": {
+            "videoTrack": [
+              {
+                "label": "Altyazılar",
+                "kind": "subtitles",
+                "srcLang": "en"
+              }
+            ]
+          },
+          "files": [
+            {
+              "path": "videos/video-yyo2tciU.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "audioTrue":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/tebrikler.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "audioFalse":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/yanlis.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "description": "Açıklama 2",
+      "image": {
+        "path": "images/cat.jpg",
+        "width": 300,
+        "height": 300
+      },
+      "audio":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/kedi.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "audioTrue":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/tebrikler.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "audioFalse":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/yanlis.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      }
+    }
+    
+    
+  ]
+}

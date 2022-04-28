@@ -1,0 +1,81 @@
+[
+  
+  {
+    "name": "alphabet",
+    "type": "list",
+    "label": "Textler",
+    "entity": "text block",
+    "min": 1,
+    "max": 31,
+    "field": {
+      "name": "media",
+      "type": "group",
+      "label": "Alphabet",
+      "importance": "medium",
+      "fields": [
+        {
+          "name": "description",
+          "type": "text",
+          "widget": "html",
+          "label": "Line of text",
+          "placeholder": "Oslo is the capital of *Norway*."
+        },
+        { 
+          "label": "Images", 
+          "name": "image", 
+          "type": "image" 
+        },
+        {
+          "name": "video",
+          "type": "library",
+          "label": "Video",
+          "options": [
+            "H5P.Video 1.6"
+          ]
+        },
+        {
+          "name": "audio",
+          "type": "library",
+          "label": "Audio",
+          "options": [
+            "H5P.Audio 1.4"
+          ]
+        },
+        {
+          "name": "audioTrue",
+          "type": "library",
+          "label": "Audio True",
+          "options": [
+            "H5P.Audio 1.4"
+          ]
+        },
+        {
+          "name": "audioFalse",
+          "type": "library",
+          "label": "Audio False",
+          "options": [
+            "H5P.Audio 1.4"
+          ]
+        },
+        {
+          "name": "correct",
+          "type": "select",
+          "label": "Progress indicator",
+          "description": "Question set progress indicator style.",
+          "options": [
+            {
+              "value": "true",
+              "label": "Doğru"
+            },
+            {
+              "value": "false",
+              "label": "Yanlış"
+            }
+          ]
+        }
+      ]
+    }
+
+  }
+]
+

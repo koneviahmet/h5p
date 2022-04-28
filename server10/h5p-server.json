@@ -1,0 +1,7 @@
+{
+  "host": "localhost",
+  "port": 3000,
+  "mainLibraryDir": "H5P.Alphabet",
+  "libraryDir": "libs",
+  "contentDir": "content"
+}
