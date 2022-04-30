@@ -1,11 +1,34 @@
 {
   "alphabet": [
     {
+      "correct": "true",
       "description": "Hello worldx",
       "image": {
         "path": "images/ari.jpg",
         "width": 300,
         "height": 300
+      },
+      "video":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
       },
       "audio":{
         "library":"H5P.Audio 1.4",
@@ -22,55 +45,6 @@
           ]
         }
       },      
-      "video":{
-        "library":"H5P.Video 1.5",
-        "params":{
-          "params": {
-            "visuals": {
-              "fit": true,
-              "controls": true
-            },
-            "playback": {
-              "autoplay": false,
-              "loop": false
-            },
-            "l10n": {
-              "name": "Video",
-              "loading": "Video player loading...",
-              "noPlayers": "Found no video players that supports the given video format.",
-              "noSources": "Video is missing sources.",
-              "aborted": "Media playback has been aborted.",
-              "networkFailure": "Network failure.",
-              "cannotDecode": "Unable to decode media.",
-              "formatNotSupported": "Video format not supported.",
-              "mediaEncrypted": "Media encrypted.",
-              "unknownError": "Unknown error.",
-              "invalidYtId": "Invalid YouTube ID.",
-              "unknownYtId": "Unable to find video with the given YouTube ID.",
-              "restrictedYt": "The owner of this video does not allow it to be embedded."
-            },
-            "sources": [
-              {
-                "path": "videos/video-tWFE1NW9.mp4",
-                "mime": "video/mp4",
-                "copyright": {
-                  "license": "U"
-                }
-              }
-            ]
-          },
-          "library": "H5P.Video 1.5",
-          "subContentId": "3fe74f2f-4ebe-462c-9217-0d64ef85b05a",
-          "metadata": {
-            "contentType": "Video",
-            "license": "U",
-            "title": "Başlıksız Video",
-            "authors": [],
-            "changes": [],
-            "extraTitle": "Başlıksız Video"
-          }
-        }
-      },
       "audioTrue":{
         "library":"H5P.Audio 1.4",
         "params":{
@@ -103,11 +77,34 @@
       }
     },
     {
+      "correct": "false",
       "description": "Açıklama 2",
       "image": {
         "path": "images/cat.jpg",
         "width": 300,
         "height": 300
+      },
+      "video":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
       },
       "audio":{
         "library":"H5P.Audio 1.4",
@@ -122,55 +119,6 @@
               }
             }
           ]
-        }
-      },
-      "video":{
-        "library":"H5P.Video 1.5",
-        "params":{
-          "params": {
-            "visuals": {
-              "fit": true,
-              "controls": true
-            },
-            "playback": {
-              "autoplay": false,
-              "loop": false
-            },
-            "l10n": {
-              "name": "Video",
-              "loading": "Video player loading...",
-              "noPlayers": "Found no video players that supports the given video format.",
-              "noSources": "Video is missing sources.",
-              "aborted": "Media playback has been aborted.",
-              "networkFailure": "Network failure.",
-              "cannotDecode": "Unable to decode media.",
-              "formatNotSupported": "Video format not supported.",
-              "mediaEncrypted": "Media encrypted.",
-              "unknownError": "Unknown error.",
-              "invalidYtId": "Invalid YouTube ID.",
-              "unknownYtId": "Unable to find video with the given YouTube ID.",
-              "restrictedYt": "The owner of this video does not allow it to be embedded."
-            },
-            "sources": [
-              {
-                "path": "videos/video-tWFE1NW9.mp4",
-                "mime": "video/mp4",
-                "copyright": {
-                  "license": "U"
-                }
-              }
-            ]
-          },
-          "library": "H5P.Video 1.5",
-          "subContentId": "3fe74f2f-4ebe-462c-9217-0d64ef85b05a",
-          "metadata": {
-            "contentType": "Video",
-            "license": "U",
-            "title": "Başlıksız Video",
-            "authors": [],
-            "changes": [],
-            "extraTitle": "Başlıksız Video"
-          }
         }
       },
       "audioTrue":{
