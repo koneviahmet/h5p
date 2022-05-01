@@ -23,6 +23,8 @@ H5P.Alphabet = (function ($) {
     var self = this
     var id   = this.id
     var selectIndex = 0;
+    var trueScore   = 0;
+    var answers     = [];
     var isAudioShow       = false;
     var isAudioTrueShow   = false;
     var isAudioFalseShow  = false;
@@ -30,49 +32,28 @@ H5P.Alphabet = (function ($) {
     var isVideoTrueShow   = false;
     var isVideoFalseShow  = false;
     var audio,audioTrue,audioFalse,video,videoTrue,videoFalse;
-
+    
 
     // Set class on container to identify it as a greeting card
     // container.  Allows for styling later.
     $container.addClass("h5p-alphabet");
 
     var nextBackButtonContent = $('<div>', {'class': "alphabet-button-content"})
-    var ImageContent          = $('<div>', {'class': "alphabet-image-content"})
-    var descriptionContent    = $('<div>', {'class': "alphabet-description-content"})
-    var answerContent         = $('<div>', {'class': "alphabet-answer-content"})
-    var videoContent          = $('<div>', {'class': "alphabet-video-content"})
+    var mainContent           = $('<div>', {'class': "alphabet-main-content"})
     var resultContent         = $('<div>', {'class': "alphabet-result-content"})
-    var listenContent         = $('<div>', {'class': "alphabet-listen-content"})
-    var audioContent          = $('<div>', {'class': "alphabet-audio-content"})
-    var audioContainer        = $('<div>', {'class': 'alphabet-audio-container'})
-    var audioTrueContainer    = $('<div>', {'class': 'alphabet-audio-true-container'})  
-    var audioFalseContainer   = $('<div>', {'class': 'alphabet-audio-false-container'})
+
+    var nextButton            = $('<button>', {'class': "alphabet-next-button"}).html("İleri")
+    var backButton            = $('<button>', {'class': "alphabet-back-button"}).html("Geri")
+    var videoPlayButton       = $('<button>', {'class': "alphabet-video-play-button"}).html("play")
 
 
-    var nextButton      = $('<button>', {'class': "alphabet-next-button"}).html("İleri")
-    var backButton      = $('<button>', {'class': "alphabet-back-button"}).html("Geri")
-    var audioPlayButton = $('<button>', {'class': "alphabet-audio-play-button"}).html("Başla")
-    var trueButton      = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-true"}).html("Doğru")
-    var falseButton     = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-false"}).html("Yanlış")
-    var videoPlayButton = $('<button>', {'class': "alphabet-video-play-button"}).html("play")
-
-
-
-    $container.append(resultContent);
     nextBackButtonContent.append(nextButton)
     nextBackButtonContent.append(backButton)
-    
-    $container.append(nextBackButtonContent);
-    $container.append(ImageContent);
-    $container.append(descriptionContent);
-    $container.append(listenContent);
-    $container.append(answerContent);
-    $container.append(audioContent);
-    
-
     nextBackButtonContent.append(videoPlayButton)
-    $container.append(videoContent);
 
+    $container.append(resultContent);
+    $container.append(nextBackButtonContent);
+     
     nextButton.on("click", function(){
       selectIndex = selectIndex + 1
       setAlphabets(selectIndex)
@@ -103,25 +84,74 @@ H5P.Alphabet = (function ($) {
       }
     }
 
+    function showResultContent(){
+      var $scoreBar = H5P.JoubelUI.createScoreBar(self.options.alphabet.length, 'This is a scorebar');
+      $scoreBar.setScore(trueScore)
+      var table = $('<table>', {'class': "alphabet-result-table"})
+      var tr = $('<tr>', {'class': "alphabet-result-table-tr"})
 
-    var $scoreBar = H5P.JoubelUI.createScoreBar(10, 'This is a scorebar');
-    $scoreBar.setScore(4)
-    resultContent.html($scoreBar.$scoreBar);
+      tr.append('<td>1</td><td>2</td>')
+      table.append(tr)
+
+      resultContent.append(table);
+      resultContent.append($scoreBar.$scoreBar);
+    }
+
+    showResultContent()
 
     //setalphabets
-    function setAlphabets(index){
-      selectIndex = index
+    function setAlphabets(){
       setNextBackButton()
+      var alphabet = self.options.alphabet[selectIndex]
+      
+      var imageContent          = $('<div>', {'class': "alphabet-image-content-" + alphabet.style})
+      var bgImageContent        = $('<div>', {'class': "alphabet-bg-image-content-" + alphabet.style})
+      var descriptionContent    = $('<div>', {'class': "alphabet-description-content-" + alphabet.style})
+      var answerContent         = $('<div>', {'class': "alphabet-answer-content-" + alphabet.style})
+      var videoContent          = $('<div>', {'class': "alphabet-video-content-" + alphabet.style})
+      
+      var listenContent         = $('<div>', {'class': "alphabet-listen-content-" + alphabet.style})
+      var audioContent          = $('<div>', {'class': "alphabet-audio-content-" + alphabet.style})
+      var audioContainer        = $('<div>', {'class': "alphabet-audio-container-" + alphabet.style})
+      var audioTrueContainer    = $('<div>', {'class': "alphabet-audio-true-container-" + alphabet.style})  
+      var audioFalseContainer   = $('<div>', {'class': "alphabet-audio-false-container-" + alphabet.style})
+      var videoContainer        = $('<div>', {'class': "alphabet-video-container-" + alphabet.style})
+      var videoTrueContainer    = $('<div>', {'class': "alphabet-video-true-container-" + alphabet.style})  
+      var videoFalseContainer   = $('<div>', {'class': "alphabet-video-false-container-" + alphabet.style})
+  
 
-      var alphabet = self.options.alphabet[index]
+      var audioPlayButton = $('<button>', {'class': "alphabet-audio-play-button-" + alphabet.style}).html("Başla")
+      var trueButton      = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-true-" + alphabet.style}).html("Doğru")
+      var falseButton     = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-false-" + alphabet.style}).html("Yanlış")
+      
 
+      mainContent.html('')
+      mainContent.append(imageContent);
+      mainContent.append(bgImageContent);
+      mainContent.append(descriptionContent);
+      mainContent.append(listenContent);
+      mainContent.append(answerContent);
+      mainContent.append(audioContent);
+      mainContent.append(videoContent);
+      $container.append(mainContent);
+
+      
       //add images
       descriptionContent.html(alphabet.description);
       if (alphabet.image && alphabet.image.path) {
-        ImageContent.html($('<img>',{
-          class: 'alphabet-image',
-          alt: "image alt",
+        imageContent.html($('<img>',{
+          class: 'alphabet-image-'+alphabet.style,
           src: H5P.getPath(alphabet.image.path, id),
+          load: function () {
+            self.trigger('resize')
+          }
+        }))
+      }
+
+      if (alphabet.bgImage && alphabet.bgImage.path) {
+        bgImageContent.html($('<img>',{
+          class: 'alphabet-bg-image-'+alphabet.style,
+          src: H5P.getPath(alphabet.bgImage.path, id),
           load: function () {
             self.trigger('resize')
           }
@@ -129,64 +159,74 @@ H5P.Alphabet = (function ($) {
       }
       
       //sesler
-      console.log(alphabet.audio);
-      audio       = H5P.newRunnable(alphabet.audio, id);
-      audioTrue   = H5P.newRunnable(alphabet.audioTrue, id);
-      audioFalse  = H5P.newRunnable(alphabet.audioFalse, id);
-      video       = H5P.newRunnable(alphabet.video, id);
-      videoTrue   = H5P.newRunnable(alphabet.videoTrue, id);
-      videoFalse  = H5P.newRunnable(alphabet.videoFalse, id);
+      if (alphabet.audio) { 
+          audio    = H5P.newRunnable(alphabet.audio, id);
+          audio.on('resize', function(){ self.trigger('resize');})
+          audio.attach(audioContainer);
+          audio.audio.addEventListener('play', audioPlayStatus)
+          audio.audio.addEventListener('ended', audioStopStatus)
+      }
 
+      if (alphabet.audioTrue) {
+        audioTrue = H5P.newRunnable(alphabet.audioTrue, id);
+        audioTrue.on('resize', function(){self.trigger('resize');})
+        audioTrue.attach(audioTrueContainer);
+        audioTrue.audio.addEventListener('play', audioPlayStatus)
+        audioTrue.audio.addEventListener('ended', audioStopStatus)
+      }
       
 
-      video.on('resize', function(){self.trigger('resize');})
-      videoTrue.on('resize', function(){self.trigger('resize');})
-      videoFalse.on('resize', function(){self.trigger('resize');})
-      video.attach(videoContent);
-      //videoTrue.attach(videoContent);
-      //videoFalse.attach(videoContent);
+      if (alphabet.audioFalse) {
+        audioFalse = H5P.newRunnable(alphabet.audioFalse, id);
+        audioFalse.on('resize', function(){self.trigger('resize');})
+        audioFalse.attach(audioFalseContainer);
+        audioFalse.audio.addEventListener('play', audioPlayStatus)
+        audioFalse.audio.addEventListener('ended', audioStopStatus)
+      }
+      
+      videoContent.html("");
+      if(alphabet.video){
+        video   = H5P.newRunnable(alphabet.video, id);
+        video.on('resize', function(){self.trigger('resize');})
+        video.attach(videoContainer);
+        videoContent.append(videoContainer);
+        video.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
+      }
+
+      if(alphabet.videoTrue){
+        videoTrue   = H5P.newRunnable(alphabet.videoTrue, id);
+        videoTrue.on('resize', function(){self.trigger('resize');})
+        videoTrue.attach(videoTrueContainer);
+        videoContent.append(videoTrueContainer);
+        videoTrue.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
+      }
       
 
-      //videoTrue.attach($videoContainer);
-      //videoFalse.attach($videoContainer);
+      if(alphabet.videoFalse){
+        videoFalse  = H5P.newRunnable(alphabet.videoFalse, id);
+        videoFalse.on('resize', function(){self.trigger('resize');})
+        videoFalse.attach(videoFalseContainer);
+        videoContent.append(videoFalseContainer);
+        videoFalse.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
+      }
 
-      /** video content push */
-      //videoContent.html($videoContainer);
-      
+
       videoPlayButton.on("click", function(){
         video.play()
       })
 
 
-      video.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
       videoTrue.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
       videoFalse.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
 
-      
-
-      audio.on('resize', function(){ self.trigger('resize');})
-      audio.attach(audioContainer);
-      
-      audioTrue.on('resize', function(){self.trigger('resize');})
-      audioTrue.attach(audioTrueContainer);
-
-      audioFalse.on('resize', function(){self.trigger('resize');})
-      audioFalse.attach(audioFalseContainer);
 
       listenContent.html(audioPlayButton)
       audioPlayButton.on('click', function(){
         audio.play();
       })
 
+
       //audio events
-      audio.audio.addEventListener('play', audioPlayStatus)
-      audio.audio.addEventListener('ended', audioStopStatus)
-      audioTrue.audio.addEventListener('play', audioPlayStatus)
-      audioTrue.audio.addEventListener('ended', audioStopStatus)
-      audioFalse.audio.addEventListener('play', audioPlayStatus)
-      audioFalse.audio.addEventListener('ended', audioStopStatus)
-
-
       answerContent.html("")
       answerContent.append(trueButton)
       answerContent.append(falseButton)
@@ -198,14 +238,32 @@ H5P.Alphabet = (function ($) {
       falseButton.on('click', function(){
         checkAnswer("false")
       })
-      
+
+
+      //check answer true or false  
       function checkAnswer(selectAnswer){
-        console.log(selectAnswer, "-", alphabet.correct);
+        var newAnswer = {
+          "index": selectIndex,
+          "description": alphabet.description,
+        }
+       
         if (selectAnswer == alphabet.correct) {
           audioTrue.play()
+          newAnswer.correct = true;
         }else{
           audioFalse.play()
+          newAnswer.correct = false;
         }
+      
+        if (findIndex(selectIndex,answers) === -1) {
+          if (newAnswer.correct) {
+            trueScore = trueScore + 1
+          }
+            
+          answers.push(newAnswer)
+        }
+
+        console.log(answers);
       } 
 
       function audioPlayStatus(){
@@ -227,12 +285,18 @@ H5P.Alphabet = (function ($) {
 
 
 
-
+    var findIndex = function(key,arr) {
+      for(var i=0, j=arr.length; i<j; i++) {
+          if(arr[i].index === key) {
+              return i;
+          }
+      }
+      return -1;
+    }
+    
     
 
-    setAlphabets(selectIndex)
-
-    
+    setAlphabets()
 
 
   };

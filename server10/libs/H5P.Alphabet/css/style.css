@@ -10,11 +10,25 @@
   background:#F5F5F5;
 }
 
-.alphabet-image{
+.alphabet-image-one{
+  max-width: 300px;
+}
+.alphabet-bg-image-one{
   max-width: 300px;
 }
 
-.alphabet-video-content{
+.alphabet-image-two{
+  max-width: 200px;
+}
+.alphabet-bg-image-two{
+  max-width: 200px;
+}
+
+.alphabet-video-content-one{
+  max-width: 250px;
+}
+
+.alphabet-video-content-two{
   max-width: 250px;
 }
 

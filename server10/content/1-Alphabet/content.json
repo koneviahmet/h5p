@@ -1,8 +1,14 @@
 {
   "alphabet": [
     {
+      "style": "one",
       "correct": "true",
       "description": "Hello worldx",
+      "bgImage": {
+        "path": "images/cat.jpg",
+        "width": 300,
+        "height": 300
+      },
       "image": {
         "path": "images/ari.jpg",
         "width": 300,
@@ -73,22 +79,7 @@
             }
           ]
         }
-      },
-      "audio":{
-        "library":"H5P.Audio 1.4",
-        "params":{
-          "playerMode": "minimalistic",
-          "files": [
-            {
-              "path": "audios/ari.mp3",
-              "mime": "audio/mpeg",
-              "copyright": {
-                "license": "U"
-              }
-            }
-          ]
-        }
-      },      
+      },     
       "audioTrue":{
         "library":"H5P.Audio 1.4",
         "params":{
@@ -121,8 +112,14 @@
       }
     },
     {
+      "style": "two",
       "correct": "false",
       "description": "Açıklama 2",
+      "bgImage": {
+        "path": "images/cat.jpg",
+        "width": 300,
+        "height": 300
+      },
       "image": {
         "path": "images/cat.jpg",
         "width": 300,

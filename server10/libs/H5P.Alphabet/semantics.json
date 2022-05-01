@@ -14,6 +14,23 @@
       "importance": "medium",
       "fields": [
         {
+          "name": "style",
+          "type": "select",
+          "label": "Select Style",
+          "description": "Set select style",
+          "options": [
+            {
+              "value": "one",
+              "label": "Bir"
+            },
+            {
+              "value": "two",
+              "label": "İki"
+            }
+          ],
+          "default": "one"
+        },
+        {
           "name": "description",
           "type": "text",
           "widget": "html",
@@ -23,6 +40,11 @@
         { 
           "label": "Images", 
           "name": "image", 
+          "type": "image" 
+        },
+        { 
+          "label": "Images", 
+          "name": "bgImage", 
           "type": "image" 
         },
         {
