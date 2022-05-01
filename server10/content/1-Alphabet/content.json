@@ -30,6 +30,50 @@
           ]
         }
       },
+      "videoTrue":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "videoFalse":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
       "audio":{
         "library":"H5P.Audio 1.4",
         "params":{
@@ -84,28 +128,6 @@
         "width": 300,
         "height": 300
       },
-      "video":{
-        "library":"H5P.Video 1.6",
-        "params":{
-          "visuals": {
-            "fit": true,
-            "controls": true
-          },
-          "playback": {
-            "autoplay": false,
-            "loop": false
-          },
-          "sources": [
-            {
-              "path": "videos/vd.mp4",
-              "mime": "video/mp4",
-              "copyright": {
-                "license": "U"
-              }
-            }
-          ]
-        }
-      },
       "audio":{
         "library":"H5P.Audio 1.4",
         "params":{
@@ -144,6 +166,72 @@
             {
               "path": "audios/yanlis.mp3",
               "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "video":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "videoTrue":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "videoFalse":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
               "copyright": {
                 "license": "U"
               }

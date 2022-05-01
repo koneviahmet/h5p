@@ -26,14 +26,6 @@
           "type": "image" 
         },
         {
-          "name": "video",
-          "type": "library",
-          "label": "Video",
-          "options": [
-            "H5P.Video 1.6"
-          ]
-        },
-        {
           "name": "audio",
           "type": "library",
           "label": "Audio",
@@ -55,6 +47,30 @@
           "label": "Audio False",
           "options": [
             "H5P.Audio 1.4"
+          ]
+        },
+        {
+          "name": "video",
+          "type": "library",
+          "label": "Video",
+          "options": [
+            "H5P.Video 1.6"
+          ]
+        },
+        {
+          "name": "videoTrue",
+          "type": "library",
+          "label": "Video",
+          "options": [
+            "H5P.Video 1.6"
+          ]
+        },
+        {
+          "name": "videoFalse",
+          "type": "library",
+          "label": "Video",
+          "options": [
+            "H5P.Video 1.6"
           ]
         },
         {

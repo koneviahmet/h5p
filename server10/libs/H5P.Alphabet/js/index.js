@@ -23,7 +23,13 @@ H5P.Alphabet = (function ($) {
     var self = this
     var id   = this.id
     var selectIndex = 0;
-
+    var isAudioShow       = false;
+    var isAudioTrueShow   = false;
+    var isAudioFalseShow  = false;
+    var isVideoShow       = false;
+    var isVideoTrueShow   = false;
+    var isVideoFalseShow  = false;
+    var audio,audioTrue,audioFalse,video,videoTrue,videoFalse;
 
 
     // Set class on container to identify it as a greeting card
@@ -34,10 +40,14 @@ H5P.Alphabet = (function ($) {
     var ImageContent          = $('<div>', {'class': "alphabet-image-content"})
     var descriptionContent    = $('<div>', {'class': "alphabet-description-content"})
     var answerContent         = $('<div>', {'class': "alphabet-answer-content"})
-    var listenContent         = $('<div>', {'class': "alphabet-listen-content"})
-    var audioContent          = $('<div>', {'class': "alphabet-audio-content"})
     var videoContent          = $('<div>', {'class': "alphabet-video-content"})
     var resultContent         = $('<div>', {'class': "alphabet-result-content"})
+    var listenContent         = $('<div>', {'class': "alphabet-listen-content"})
+    var audioContent          = $('<div>', {'class': "alphabet-audio-content"})
+    var audioContainer        = $('<div>', {'class': 'alphabet-audio-container'})
+    var audioTrueContainer    = $('<div>', {'class': 'alphabet-audio-true-container'})  
+    var audioFalseContainer   = $('<div>', {'class': 'alphabet-audio-false-container'})
+
 
     var nextButton      = $('<button>', {'class': "alphabet-next-button"}).html("İleri")
     var backButton      = $('<button>', {'class': "alphabet-back-button"}).html("Geri")
@@ -47,9 +57,11 @@ H5P.Alphabet = (function ($) {
     var videoPlayButton = $('<button>', {'class': "alphabet-video-play-button"}).html("play")
 
 
+
     $container.append(resultContent);
     nextBackButtonContent.append(nextButton)
     nextBackButtonContent.append(backButton)
+    
     $container.append(nextBackButtonContent);
     $container.append(ImageContent);
     $container.append(descriptionContent);
@@ -96,7 +108,6 @@ H5P.Alphabet = (function ($) {
     $scoreBar.setScore(4)
     resultContent.html($scoreBar.$scoreBar);
 
-
     //setalphabets
     function setAlphabets(index){
       selectIndex = index
@@ -116,43 +127,51 @@ H5P.Alphabet = (function ($) {
           }
         }))
       }
-
+      
       //sesler
-      var audio       = H5P.newRunnable(alphabet.audio, id);
-      var audioTrue   = H5P.newRunnable(alphabet.audioTrue, id);
-      var audioFalse  = H5P.newRunnable(alphabet.audioFalse, id);
-      var video       = H5P.newRunnable(alphabet.video, id);
+      console.log(alphabet.audio);
+      audio       = H5P.newRunnable(alphabet.audio, id);
+      audioTrue   = H5P.newRunnable(alphabet.audioTrue, id);
+      audioFalse  = H5P.newRunnable(alphabet.audioFalse, id);
+      video       = H5P.newRunnable(alphabet.video, id);
+      videoTrue   = H5P.newRunnable(alphabet.videoTrue, id);
+      videoFalse  = H5P.newRunnable(alphabet.videoFalse, id);
 
-      var $videoContainer = $('<div>', {'class': 'h5p-video-container'})
-      video.on('resize', function(){self.trigger('resize');})
-      video.attach($videoContainer);
-      videoContent.html($videoContainer);
       
 
+      video.on('resize', function(){self.trigger('resize');})
+      videoTrue.on('resize', function(){self.trigger('resize');})
+      videoFalse.on('resize', function(){self.trigger('resize');})
+      video.attach(videoContent);
+      //videoTrue.attach(videoContent);
+      //videoFalse.attach(videoContent);
+      
+
+      //videoTrue.attach($videoContainer);
+      //videoFalse.attach($videoContainer);
+
+      /** video content push */
+      //videoContent.html($videoContainer);
+      
       videoPlayButton.on("click", function(){
         video.play()
       })
 
-      video.on('stateChange', function(e){
-        if (e.data === 0) {
-          console.log("video ended");
-        }
-      });
 
-      var $audioContainer = $('<div>', {'class': 'h5p-webinar-quiz'})
-      audio.on('resize', function(){ self.trigger('resize');})
-      audio.attach($audioContainer);
+      video.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
+      videoTrue.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
+      videoFalse.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
+
       
-   
-      var $audioTrueContainer = $('<div>', { 'class': 'h5p-webinar-quiz'})  
+
+      audio.on('resize', function(){ self.trigger('resize');})
+      audio.attach(audioContainer);
+      
       audioTrue.on('resize', function(){self.trigger('resize');})
-      audioTrue.attach($audioTrueContainer);
+      audioTrue.attach(audioTrueContainer);
 
-
-      var $audioFalseContainer = $('<div>', {'class': 'h5p-webinar-quiz'})
       audioFalse.on('resize', function(){self.trigger('resize');})
-      audioFalse.attach($audioFalseContainer);
-
+      audioFalse.attach(audioFalseContainer);
 
       listenContent.html(audioPlayButton)
       audioPlayButton.on('click', function(){
@@ -160,17 +179,18 @@ H5P.Alphabet = (function ($) {
       })
 
       //audio events
-      audio.audio.addEventListener('play', playAnswer)
-      audio.audio.addEventListener('ended', stopAnswer)
-      audioTrue.audio.addEventListener('play', playAnswer)
-      audioTrue.audio.addEventListener('ended', stopAnswer)
-      audioFalse.audio.addEventListener('play', playAnswer)
-      audioFalse.audio.addEventListener('ended', stopAnswer)
+      audio.audio.addEventListener('play', audioPlayStatus)
+      audio.audio.addEventListener('ended', audioStopStatus)
+      audioTrue.audio.addEventListener('play', audioPlayStatus)
+      audioTrue.audio.addEventListener('ended', audioStopStatus)
+      audioFalse.audio.addEventListener('play', audioPlayStatus)
+      audioFalse.audio.addEventListener('ended', audioStopStatus)
+
 
       answerContent.html("")
       answerContent.append(trueButton)
       answerContent.append(falseButton)
-      
+
       trueButton.on('click', function(){
         checkAnswer("true")
       })
@@ -180,7 +200,6 @@ H5P.Alphabet = (function ($) {
       })
       
       function checkAnswer(selectAnswer){
-        playAnswer()
         console.log(selectAnswer, "-", alphabet.correct);
         if (selectAnswer == alphabet.correct) {
           audioTrue.play()
@@ -189,14 +208,20 @@ H5P.Alphabet = (function ($) {
         }
       } 
 
-      function playAnswer(){
-        $('.answer-button').addClass('answer-button-wait')
-        $('.answer-play').addClass('answer-play-wait')
+      function audioPlayStatus(){
+        console.log("audio play");
       }
   
-      function stopAnswer(){
-        $('.answer-button').removeClass('answer-button-wait')
-        $('.answer-play').removeClass('answer-play-wait')
+      function audioStopStatus(){
+        console.log("audio stop");
+      }
+
+      function videoPlayStatus(){
+        console.log("video start");
+      }
+  
+      function videoStopStatus(){
+        console.log("video stop");
       }
     }
 
