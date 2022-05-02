@@ -1,43 +1,38 @@
-.answer-button-wait{
+.de-active-button{
   pointer-events:none;
   color:#AAA;
   background:#F5F5F5;
 }
 
-.answer-play-wait{
-  pointer-events:none;
-  color:#AAA;
-  background:#F5F5F5;
-}
 
-.alphabet-image-one{
-  max-width: 300px;
-}
-.alphabet-bg-image-one{
-  max-width: 300px;
-}
-
-.alphabet-image-two{
-  max-width: 200px;
-}
-.alphabet-bg-image-two{
-  max-width: 200px;
-}
-
-.alphabet-video-content-one{
-  max-width: 250px;
-}
-
-.alphabet-video-content-two{
-  max-width: 250px;
-}
+/* 
+alphabet-button-content
+alphabet-main-content
+alphabet-result-content
+-- table, tr, td
+alphabet-header-content
+alphabet-next-button
+alphabet-back-button
+alphabet-restart-button
+alphabet-answer-button
+*/
 
 
-
-
-
-
-
-
-
-
+/* one 
+alphabet-image-content-
+alphabet-bg-image-content-
+alphabet-description-content-
+alphabet-answer-content-
+alphabet-video-content-
+alphabet-listen-content-
+alphabet-audio-content-
+alphabet-audio-container-
+alphabet-audio-true-container-
+alphabet-audio-false-container-
+alphabet-video-container-
+alphabet-video-true-container-
+alphabet-video-false-container-
+alphabet-play-button-
+alphabet-answer-button-true-
+alphabet-answer-button-false-
+*/
