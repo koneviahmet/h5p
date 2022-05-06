@@ -19,6 +19,12 @@
       "path": "css/style.css"
     },
     {
+      "path": "css/style_one.css"
+    },
+    {
+      "path": "css/style_two.css"
+    },
+    {
       "path": "css/animate.css"
     }
   ],
