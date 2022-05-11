@@ -1,7 +1,25 @@
 {
+  "mode": "one",
+  "directive":{
+    "library":"H5P.Audio 1.4",
+    "params":{
+      "playerMode": "minimalistic",
+      "files": [
+        {
+          "path": "audios/kedi.mp3",
+          "mime": "audio/mpeg",
+          "copyright": {
+            "license": "U"
+          }
+        }
+      ]
+    }
+  },
   "alphabet": [
     {
-      "style": "one",
+      "answerOne": true,
+      "answerTwo": false,
+      "answerThree": true,
       "correct": "true",
       "description": "Hello worldx",
       "bgImage": {
@@ -127,7 +145,9 @@
       }
     },
     {
-      "style": "two",
+      "answerOne": true,
+      "answerTwo": false,
+      "answerThree": true,
       "correct": "false",
       "description": "Açıklama 2",
       "bgImage": {

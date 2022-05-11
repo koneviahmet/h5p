@@ -28,14 +28,15 @@ H5P.Alphabet = (function ($) {
     var isNextButton      = false
     var whichVideo        = null; //questionVideo, trueVideo, falseVideo
     var whichAudio        = null; //questionAudio, trueAudio, falseAudio       
-    var audio,audioTrue,audioFalse,video,videoTrue,videoFalse;
-    
+    var audio,audioTrue,audioFalse,video,videoTrue,videoFalse,directiveAudio;
+    var directive = self.options.directive  
 
     // Set class on container to identify it as a greeting card
     // container.  Allows for styling later.
     $container.addClass("h5p-alphabet");
 
     var nextBackButtonContent = $('<div>', {'class': "alphabet-button-content"}).hide()
+    var directiveButton       = $('<button>', {'class': "alphabet-directive-button"}).html("Direktif")
     var mainContent           = $('<div>', {'class': "alphabet-main-content"})
     var resultContent         = $('<div>', {'class': "alphabet-result-content"}).hide()
     var headerContent         = $('<div>', {'class': "alphabet-header-content"}).hide()
@@ -44,6 +45,7 @@ H5P.Alphabet = (function ($) {
     var backButton            = $('<button>', {'class': "alphabet-back-button"}).html("Geri")
     var restartButton         = $('<button>', {'class': "alphabet-restart-button"}).html("Yeniden Başla")
 
+    
 
     restartButton.on("click", function(){
       answers           = [];
@@ -58,6 +60,7 @@ H5P.Alphabet = (function ($) {
 
     headerContent.append(restartButton)
     $container.append(headerContent);
+    $container.append(directiveButton);
 
     nextBackButtonContent.append(nextButton)
     nextBackButtonContent.append(backButton)
@@ -126,26 +129,42 @@ H5P.Alphabet = (function ($) {
       whichVideo  = null;
       whichAudio  = null; 
 
-      var alphabet = self.options.alphabet[selectIndex]
+      var alphabet        = self.options.alphabet[selectIndex]
+      alphabet.mode       = self.options.mode
+      var questionAnswer  = []
+      var selectAnswer    = [];
+
+      if (alphabet.mode == "one") {
+        questionAnswer.push(alphabet.correct)
+        questionAnswer = questionAnswer.join("-")
+      }else if (alphabet.mode == "two") {
+        questionAnswer.push(alphabet.answerOne ? "true":"false")
+        questionAnswer.push(alphabet.answerTwo? "true":"false")
+        questionAnswer.push(alphabet.answerThree? "true":"false")
+        questionAnswer = questionAnswer.join("-")
+      }
+
+
+
+
+      var imageContent          = $('<div>', {'class': "alphabet-image-content-" + alphabet.mode}).hide()
+      var bgImageContent        = $('<div>', {'class': "alphabet-bg-image-content-" + alphabet.mode}).hide()
+      var descriptionContent    = $('<div>', {'class': "alphabet-description-content-" + alphabet.mode}).hide()
+      var answerContent         = $('<div>', {'class': "alphabet-answer-content-" + alphabet.mode})
+      var videoContent          = $('<div>', {'class': "alphabet-video-content-" + alphabet.mode}).hide()
       
-      var imageContent          = $('<div>', {'class': "alphabet-image-content-" + alphabet.style}).hide()
-      var bgImageContent        = $('<div>', {'class': "alphabet-bg-image-content-" + alphabet.style}).hide()
-      var descriptionContent    = $('<div>', {'class': "alphabet-description-content-" + alphabet.style}).hide()
-      var answerContent         = $('<div>', {'class': "alphabet-answer-content-" + alphabet.style})
-      var videoContent          = $('<div>', {'class': "alphabet-video-content-" + alphabet.style}).hide()
-      
-      var listenContent         = $('<div>', {'class': "alphabet-listen-content-" + alphabet.style}).hide()
-      var audioContent          = $('<div>', {'class': "alphabet-audio-content-" + alphabet.style}).hide()
-      var audioContainer        = $('<div>', {'class': "alphabet-audio-container-" + alphabet.style}).hide()
-      var audioTrueContainer    = $('<div>', {'class': "alphabet-audio-true-container-" + alphabet.style}).hide()  
-      var audioFalseContainer   = $('<div>', {'class': "alphabet-audio-false-container-" + alphabet.style}).hide()
-      var videoContainer        = $('<div>', {'class': "alphabet-video-container-" + alphabet.style}).hide()
-      var videoTrueContainer    = $('<div>', {'class': "alphabet-video-true-container-" + alphabet.style}).hide()  
-      var videoFalseContainer   = $('<div>', {'class': "alphabet-video-false-container-" + alphabet.style}).hide()
+      var listenContent         = $('<div>', {'class': "alphabet-listen-content-" + alphabet.mode}).hide()
+      var audioContent          = $('<div>', {'class': "alphabet-audio-content-" + alphabet.mode}).hide()
+      var audioContainer        = $('<div>', {'class': "alphabet-audio-container-" + alphabet.mode}).hide()
+      var audioTrueContainer    = $('<div>', {'class': "alphabet-audio-true-container-" + alphabet.mode}).hide()  
+      var audioFalseContainer   = $('<div>', {'class': "alphabet-audio-false-container-" + alphabet.mode}).hide()
+      var videoContainer        = $('<div>', {'class': "alphabet-video-container-" + alphabet.mode}).hide()
+      var videoTrueContainer    = $('<div>', {'class': "alphabet-video-true-container-" + alphabet.mode}).hide()  
+      var videoFalseContainer   = $('<div>', {'class': "alphabet-video-false-container-" + alphabet.mode}).hide()
   
-      var playButton      = $('<button>', {'class': "alphabet-play-button-" + alphabet.style}).html("Başla")
-      var trueButton      = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-true-" + alphabet.style}).html("Doğru")
-      var falseButton     = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-false-" + alphabet.style}).html("Yanlış")
+      var playButton      = $('<button>', {'class': "alphabet-play-button-" + alphabet.mode}).html("Başla")
+      var trueButton      = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-true-" + alphabet.mode}).html("Doğru")
+      var falseButton     = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-false-" + alphabet.mode}).html("Yanlış")
       
       mainContent.html('')
       mainContent.append(imageContent);
@@ -163,7 +182,7 @@ H5P.Alphabet = (function ($) {
       if (alphabet.image && alphabet.image.path) {
         imageContent.show()
         imageContent.html($('<img>',{
-          class: 'alphabet-image-'+alphabet.style,
+          class: 'alphabet-image-'+alphabet.mode,
           src: H5P.getPath(alphabet.image.path, id),
           load: function () {
             self.trigger('resize')
@@ -174,7 +193,7 @@ H5P.Alphabet = (function ($) {
       if (alphabet.bgImage && alphabet.bgImage.path) {
         bgImageContent.show()
         bgImageContent.html($('<img>',{
-          class: 'alphabet-bg-image-'+alphabet.style,
+          class: 'alphabet-bg-image-'+alphabet.mode,
           src: H5P.getPath(alphabet.bgImage.path, id),
           load: function () {
             self.trigger('resize')
@@ -182,7 +201,22 @@ H5P.Alphabet = (function ($) {
         }))
       }
       
+
       //sesler
+      if (directive) { 
+          listenContent.show()
+          audioContainer.show()
+          directiveAudio    = H5P.newRunnable(directive, id);
+          directiveAudio.on('resize', function(){ self.trigger('resize');})
+          directiveAudio.attach(audioContainer);
+          directiveAudio.audio.addEventListener('play', audioPlayStatus)
+          directiveAudio.audio.addEventListener('ended', audioStopStatus)
+
+          directiveButton.on('click', function(){
+            directiveAudio.play()
+          })
+      }
+      
       if (alphabet.audio) { 
           listenContent.show()
           audioContainer.show()
@@ -277,15 +311,17 @@ H5P.Alphabet = (function ($) {
       answerContent.append(trueButton)
       answerContent.append(falseButton)
 
+
       trueButton.on('click', function(){
-        checkAnswer("true")
+        selectAnswer.push("true");
+        checkAnswer()
       })
       
       falseButton.on('click', function(){
-        checkAnswer("false")
+        selectAnswer.push("false");
+        checkAnswer()
       })
 
- 
 
 
       /* 
@@ -294,13 +330,15 @@ H5P.Alphabet = (function ($) {
       *** cevap için sadece ses var ise ses oynasın
       *** cevao için sadece video var ise video oynasın
       */
-      function checkAnswer(selectAnswer){
+      function checkAnswer(){
+        console.log("questionAnswer", questionAnswer);
+        console.log("selectAnswer", selectAnswer.join("-"));
         var newAnswer = {
           "index": selectIndex,
           "description": alphabet.description,
         }
        
-        if (selectAnswer == alphabet.correct) {
+        if (selectAnswer.join("-") == questionAnswer) {
           if (alphabet.audioTrue) {
             audioTrue.play()
             whichAudio = "trueAudio"
@@ -336,7 +374,8 @@ H5P.Alphabet = (function ($) {
           answers.push(newAnswer)
         }
 
-        
+        //select answeri boşaltalım
+        selectAnswer = []
       } 
 
 

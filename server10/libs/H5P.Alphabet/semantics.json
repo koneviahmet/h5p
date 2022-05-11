@@ -1,12 +1,43 @@
 [
-  
+  {
+    "name": "generalSettings",
+    "type": "group",
+    "label": "Genel Ayarlar",
+    "importance": "medium",
+    "fields": [
+      {
+        "name": "mode",
+        "type": "select",
+        "label": "Soru Modu",
+        "description": "Set select style",
+        "options": [
+          {
+            "value": "one",
+            "label": "Bir"
+          },
+          {
+            "value": "two",
+            "label": "İki"
+          }
+        ],
+        "default": "one"
+      },
+      {
+        "name": "directive",
+        "type": "library",
+        "label": "Ses Dosyası",
+        "description": "ses dosyası açıklama",
+        "options": [
+          "H5P.Audio 1.4"
+        ]
+      }
+    ]
+  },
   {
     "name": "alphabet",
     "type": "list",
     "label": "Textler",
     "entity": "text block",
-    "min": 1,
-    "max": 31,
     "field": {
       "name": "media",
       "type": "group",
@@ -14,104 +45,175 @@
       "importance": "medium",
       "fields": [
         {
-          "name": "style",
-          "type": "select",
-          "label": "Select Style",
-          "description": "Set select style",
-          "options": [
+          "name": "groupGeneralSettings",
+          "type": "group",
+          "label": "Soru Genel Ayarları",
+          "importance": "medium",
+          "fields": [
             {
-              "value": "one",
-              "label": "Bir"
+              "name": "description",
+              "type": "text",
+              "widget": "html",
+              "label": "Line of text",
+              "placeholder": "Oslo is the capital of *Norway*."
+            },
+            { 
+              "label": "Arkaplan Resmi", 
+              "name": "bgImage", 
+              "type": "image",
+              "description": "Arkaplan resmi açıklama"
+            }
+          ]
+        },
+        {
+          "name": "groupQuestion",
+          "type": "group",
+          "label": "Soru",
+          "importance": "medium",
+          "fields": [
+            { 
+              "label": "Soru Resmi", 
+              "name": "image", 
+              "type": "image",
+              "description": "Soru Resmi Açıklama"
             },
             {
-              "value": "two",
-              "label": "İki"
-            }
-          ],
-          "default": "one"
-        },
-        {
-          "name": "description",
-          "type": "text",
-          "widget": "html",
-          "label": "Line of text",
-          "placeholder": "Oslo is the capital of *Norway*."
-        },
-        { 
-          "label": "Images", 
-          "name": "image", 
-          "type": "image" 
-        },
-        { 
-          "label": "Images", 
-          "name": "bgImage", 
-          "type": "image" 
-        },
-        {
-          "name": "audio",
-          "type": "library",
-          "label": "Audio",
-          "options": [
-            "H5P.Audio 1.4"
-          ]
-        },
-        {
-          "name": "audioTrue",
-          "type": "library",
-          "label": "Audio True",
-          "options": [
-            "H5P.Audio 1.4"
-          ]
-        },
-        {
-          "name": "audioFalse",
-          "type": "library",
-          "label": "Audio False",
-          "options": [
-            "H5P.Audio 1.4"
-          ]
-        },
-        {
-          "name": "video",
-          "type": "library",
-          "label": "Video",
-          "options": [
-            "H5P.Video 1.6"
-          ]
-        },
-        {
-          "name": "videoTrue",
-          "type": "library",
-          "label": "Video",
-          "options": [
-            "H5P.Video 1.6"
-          ]
-        },
-        {
-          "name": "videoFalse",
-          "type": "library",
-          "label": "Video",
-          "options": [
-            "H5P.Video 1.6"
-          ]
-        },
-        {
-          "name": "correct",
-          "type": "select",
-          "label": "Progress indicator",
-          "description": "Question set progress indicator style.",
-          "options": [
-            {
-              "value": "true",
-              "label": "Doğru"
+              "name": "audio",
+              "type": "library",
+              "label": "Soru Sesi",
+              "description": "Soru Sesi Açıklama",
+              "options": [
+                "H5P.Audio 1.4"
+              ]
             },
             {
-              "value": "false",
-              "label": "Yanlış"
+              "name": "video",
+              "type": "library",
+              "label": "Soru Videpo",
+              "description": "Soru Video Açıklama",
+              "options": [
+                "H5P.Video 1.6"
+              ]
+            },
+            {
+              "name": "correct",
+              "type": "select",
+              "label": "Mod 1 Cevap Anahtarı",
+              "description": "Doğru cevabı seçiniz açıklama",
+              "widget": "showWhen",
+              "showWhen": {
+                "rules": [
+                  {
+                    "field": "mode",
+                    "equals": "one"
+                  }
+                ]
+              },
+              "options": [
+                {
+                  "value": "true",
+                  "label": "Doğru"
+                },
+                {
+                  "value": "false",
+                  "label": "Yanlış"
+                }
+              ],
+              "default": "true"
+            },
+            {
+              "name": "groupModeTwoCorrect",
+              "type": "group",
+              "expanded": true,
+              "label": "Mod 2 Cevap Anahtarı",
+              "importance": "medium",
+              "widget": "showWhen",
+              "showWhen": {
+                "rules": [
+                  {
+                    "field": "mode",
+                    "equals": "two"
+                  }
+                ]
+              },
+              "fields": [
+                {
+                  "name": "answerOne",
+                  "type": "boolean",
+                  "label": "1. Buton",
+                  "default": false
+                },
+                {
+                  "name": "answerTwo",
+                  "type": "boolean",
+                  "label": "2. Buton",
+                  "default": false
+                },
+                {
+                  "name": "answerThree",
+                  "type": "boolean",
+                  "label": "3. Buton",
+                  "default": false
+                }
+              ]
             }
-          ],
-          "default": "true"
+          ]
+        },
+        {
+          "name": "groupTrueAnswer",
+          "type": "group",
+          "label": "Doğru Cevap",
+          "importance": "medium",
+          "fields": [
+            {
+              "name": "audioTrue",
+              "type": "library",
+              "label": "ses Doğru",
+              "description": "Açıkalama",
+              "options": [
+                "H5P.Audio 1.4"
+              ]
+            },
+            {
+              "name": "videoTrue",
+              "type": "library",
+              "label": "Video Doğru",
+              "description": "Açıkalama",
+              "options": [
+                "H5P.Video 1.6"
+              ]
+            }
+
+          ]
+        },
+        {
+          "name": "groupTrueAnswer",
+          "type": "group",
+          "label": "Yanlış Cevap",
+          "importance": "medium",
+          "fields": [
+            {
+              "name": "audioFalse",
+              "type": "library",
+              "label": "Ses Yanlış",
+              "description": "Açıkalama",
+              "options": [
+                "H5P.Audio 1.4"
+              ]
+            },
+            {
+              "name": "videoFalse",
+              "type": "library",
+              "label": "Video Yanlış",
+              "description": "Açıkalama",
+              "options": [
+                "H5P.Video 1.6"
+              ]
+            }
+
+          ]
         }
+        
       ]
     }
 
