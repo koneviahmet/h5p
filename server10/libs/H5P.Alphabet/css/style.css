@@ -1,8 +1,26 @@
-.de-active-button{
-  pointer-events:none;
-  color:#AAA;
-  background:#F5F5F5;
+.h5p-alphabet{
+  min-width: 540px;
+  min-height: 680px;
 }
+
+
+.alphabet-bg-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.alphabet-directive-button{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+
 
 
 /* 

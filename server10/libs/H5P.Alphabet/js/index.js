@@ -29,7 +29,8 @@ H5P.Alphabet = (function ($) {
     var whichVideo        = null; //questionVideo, trueVideo, falseVideo
     var whichAudio        = null; //questionAudio, trueAudio, falseAudio       
     var audio,audioTrue,audioFalse,video,videoTrue,videoFalse,directiveAudio;
-    var directive = self.options.directive  
+    var directive = self.options.directive 
+   
 
     // Set class on container to identify it as a greeting card
     // container.  Allows for styling later.
@@ -132,7 +133,8 @@ H5P.Alphabet = (function ($) {
       var alphabet        = self.options.alphabet[selectIndex]
       alphabet.mode       = self.options.mode
       var questionAnswer  = []
-      var selectAnswer    = [];
+      var selectAnswer    = alphabet.mode == "one" ? [] : ["false","false","false"];
+      
 
       if (alphabet.mode == "one") {
         questionAnswer.push(alphabet.correct)
@@ -163,8 +165,10 @@ H5P.Alphabet = (function ($) {
       var videoFalseContainer   = $('<div>', {'class': "alphabet-video-false-container-" + alphabet.mode}).hide()
   
       var playButton      = $('<button>', {'class': "alphabet-play-button-" + alphabet.mode}).html("Başla")
-      var trueButton      = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-true-" + alphabet.mode}).html("Doğru")
-      var falseButton     = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-false-" + alphabet.mode}).html("Yanlış")
+      var firstButton     = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-first-" + alphabet.mode}).html("Doğru")
+      var secondButton    = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-second-" + alphabet.mode}).html("Yanlış")
+      var threeButton     = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-three-" + alphabet.mode}).html("3. buton")
+      var checkButton     = $('<button>', {'class': "alphabet-answer-button alphabet-answer-button-check-" + alphabet.mode}).html("Kontrol Et")
       
       mainContent.html('')
       mainContent.append(imageContent);
@@ -193,7 +197,7 @@ H5P.Alphabet = (function ($) {
       if (alphabet.bgImage && alphabet.bgImage.path) {
         bgImageContent.show()
         bgImageContent.html($('<img>',{
-          class: 'alphabet-bg-image-'+alphabet.mode,
+          class: 'alphabet-bg-image',
           src: H5P.getPath(alphabet.bgImage.path, id),
           load: function () {
             self.trigger('resize')
@@ -250,9 +254,7 @@ H5P.Alphabet = (function ($) {
 
       videoContent.html("");
       if(alphabet.video){
-        videoContent.show()
-        videoContainer.show()
-        video   = H5P.newRunnable(alphabet.video, id);
+        video  = H5P.newRunnable(alphabet.video, id);
         video.on('resize', function(){self.trigger('resize');})
         video.attach(videoContainer);
         videoContent.append(videoContainer);
@@ -308,19 +310,93 @@ H5P.Alphabet = (function ($) {
 
       //audio events
       answerContent.html("")
-      answerContent.append(trueButton)
-      answerContent.append(falseButton)
+      answerContent.append(firstButton)
+      answerContent.append(secondButton)
 
-
-      trueButton.on('click', function(){
-        selectAnswer.push("true");
-        checkAnswer()
-      })
+      //eğer mode 2 ise 3. butonu ekle
+      if (alphabet.mode == "two") {
+        answerContent.append(threeButton)
+        answerContent.append(checkButton)
+      }
       
-      falseButton.on('click', function(){
-        selectAnswer.push("false");
-        checkAnswer()
-      })
+      if (alphabet.mode == "one") {
+        firstButton.on('click', function(){
+          selectAnswer.push("true");
+          checkAnswer()
+        })
+        
+        secondButton.on('click', function(){
+          selectAnswer.push("false");
+          checkAnswer()
+        })
+      }else if (alphabet.mode == "two") {
+        firstButton.on('click', function(){
+          console.log("1. butona bastı");
+          if(selectAnswer[0] == "true"){
+            selectAnswer[0] = "false"
+          }else{
+            selectAnswer[0] = "true"
+          }
+
+
+          checkActiveButton()
+        })
+        
+        secondButton.on('click', function(){
+          
+          console.log("2. butona bastı");
+          if(selectAnswer[1] == "true"){
+            selectAnswer[1] = "false"
+          }else{
+            selectAnswer[1] = "true"
+          }
+     
+          checkActiveButton()
+        })
+
+        threeButton.on('click', function(){
+          
+          if(selectAnswer[2] == "true"){
+            selectAnswer[2] = "false"
+          }else{
+            selectAnswer[2] = "true"
+          }
+
+          checkActiveButton()
+        })
+
+        checkButton.on('click', function(){
+          checkAnswer()
+          console.log("selectAnswer",selectAnswer);
+        })
+
+      }
+
+
+      checkActiveButton()
+      function checkActiveButton(){
+        console.log("aktif butonları kontrol et");
+        console.log("selectAnswer", selectAnswer);
+        if (selectAnswer[0] == "true") {
+          firstButton.addClass("active-button-"+alphabet.mode)
+        }else{
+          firstButton.removeClass("active-button-"+alphabet.mode)
+        }
+
+        if (selectAnswer[1] == "true") {
+          secondButton.addClass("active-button-"+alphabet.mode)
+        }else{
+          secondButton.removeClass("active-button-"+alphabet.mode)
+        }
+
+        if (selectAnswer[2] == "true") {
+          threeButton.addClass("active-button-"+alphabet.mode)
+        }else{
+          threeButton.removeClass("active-button-"+alphabet.mode)
+        }
+      }
+
+
 
 
 
@@ -375,7 +451,7 @@ H5P.Alphabet = (function ($) {
         }
 
         //select answeri boşaltalım
-        selectAnswer = []
+        selectAnswer = alphabet.mode == "one" ? [] : selectAnswer;
       } 
 
 
@@ -415,12 +491,16 @@ H5P.Alphabet = (function ($) {
 
 
       function videoPlayStatus(){
+        //video oynuyorsa görün
+        videoContent.show()
+        
         deActiveButton()
         console.log("video start");
       }
   
 
       function videoStopStatus(){
+        videoContent.hide()
         activeButton()
         if (whichVideo == "questionVideo") {
           if(alphabet.audio){
@@ -434,18 +514,22 @@ H5P.Alphabet = (function ($) {
         console.log("video stop");
       }
 
-
-
       function activeButton(){
-        playButton.removeClass('de-active-button');
-        trueButton.removeClass('de-active-button');
-        falseButton.removeClass('de-active-button');
+        playButton.removeClass('de-active-button-'+ alphabet.mode);
+        firstButton.removeClass('de-active-button-'+ alphabet.mode);
+        secondButton.removeClass('de-active-button-'+ alphabet.mode);
+        threeButton.removeClass('de-active-button-'+ alphabet.mode);
+        checkButton.removeClass('de-active-button-'+ alphabet.mode);
+        directiveButton.removeClass('de-active-button-'+ alphabet.mode);
       }
 
       function deActiveButton(){
-        playButton.addClass('de-active-button');
-        trueButton.addClass('de-active-button');
-        falseButton.addClass('de-active-button');
+        playButton.addClass('de-active-button-'+ alphabet.mode);
+        firstButton.addClass('de-active-button-'+ alphabet.mode);
+        secondButton.addClass('de-active-button-'+ alphabet.mode);
+        threeButton.addClass('de-active-button-'+ alphabet.mode);
+        checkButton.addClass('de-active-button-'+ alphabet.mode);
+        directiveButton.addClass('de-active-button-'+ alphabet.mode);
       }
 
 
@@ -456,9 +540,7 @@ H5P.Alphabet = (function ($) {
         }else{
           showResultContent()
         }
-        
       }
-
     }
 
     var findIndex = function(key,arr) {

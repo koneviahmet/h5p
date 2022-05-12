@@ -1,0 +1,278 @@
+{
+  "mode": "two",
+  "directive":{
+    "library":"H5P.Audio 1.4",
+    "params":{
+      "playerMode": "minimalistic",
+      "files": [
+        {
+          "path": "audios/kedi.mp3",
+          "mime": "audio/mpeg",
+          "copyright": {
+            "license": "U"
+          }
+        }
+      ]
+    }
+  },
+  "alphabet": [
+    {
+      "answerOne": true,
+      "answerTwo": false,
+      "answerThree": true,
+      "correct": "true",
+      "description": "Hello worldx",
+      "bgImage": {
+        "path": "images/bg.png",
+        "width": 300,
+        "height": 300
+      },
+      "image": {
+        "path": "images/ari.jpg",
+        "width": 300,
+        "height": 300
+      },
+      "video":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "videoTrue":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "videoFalse":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },    
+      "audio":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/kedi.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },  
+      "audioTrue":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/tebrikler.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "audioFalse":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/yanlis.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "answerOne": true,
+      "answerTwo": false,
+      "answerThree": true,
+      "correct": "false",
+      "description": "Açıklama 2",
+      "bgImage": {
+        "path": "images/cat.jpg",
+        "width": 300,
+        "height": 300
+      },
+      "image": {
+        "path": "images/cat.jpg",
+        "width": 300,
+        "height": 300
+      },
+      "audio":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/kedi.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "audioTrue":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/tebrikler.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "audioFalse":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/yanlis.mp3",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "video":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "videoTrue":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "videoFalse":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/vd.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      }
+    }
+    
+    
+  ]
+}
