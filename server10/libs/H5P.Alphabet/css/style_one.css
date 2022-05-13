@@ -1,41 +1,132 @@
+
+/* dinleme butonu */
+.alphabet-listen-content-one{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+
+.alphabet-play-button-one{
+ position: absolute;
+ top: 55%;
+ color: red;
+ height: 5%;
+}
+
+.alphabet-answer-content-one{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 65%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+
+.alphabet-answer-content-one button{
+ height: 5%;
+}
+
+
+/* soru resmi */
+.alphabet-image-content-one{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .alphabet-image-one{
-  max-width: 200px;
+  position: absolute;
+  top: 20%;
+  max-height: 30%;
+
+}  
+
+
+
+
+
+/** video **/
+.alphabet-video-content-one{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #ccc;
+  z-index: 10;
+  opacity: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.alphabet-bg-image-one{
-  max-width: 200px;
+
+.alphabet-video-container-one{
+  width: 80% !important;
+  height: 80% !important;
 }
 
 
 
-/* 
-alphabet-button-content
-alphabet-main-content
-alphabet-result-content
--- table, tr, td
-alphabet-header-content
-alphabet-next-button
-alphabet-back-button
-alphabet-restart-button
-alphabet-answer-button
-*/
+.de-active-button-one{
+  pointer-events:none;
+  color:#AAA;
+  background:#F5F5F5;
+}
 
 
-/* one 
-alphabet-image-content-
-alphabet-bg-image-content-
-alphabet-description-content-
-alphabet-answer-content-
-alphabet-video-content-
-alphabet-listen-content-
-alphabet-audio-content-
-alphabet-audio-container-
-alphabet-audio-true-container-
-alphabet-audio-false-container-
-alphabet-video-container-
-alphabet-video-true-container-
-alphabet-video-false-container-
-alphabet-play-button-
-alphabet-answer-button-true-
-alphabet-answer-button-false-
-*/
+.active-button-one{
+  background-color: red;
+  color: #FFF;
+}
+
+
+
+
+  
+  /* 
+  alphabet-button-content
+  alphabet-main-content
+  alphabet-result-content
+  -- table, tr, td
+  alphabet-header-content
+  alphabet-next-button
+  alphabet-back-button
+  alphabet-restart-button
+  alphabet-answer-button
+  */
+  
+  
+  /* one 
+  alphabet-image-content-
+  alphabet-bg-image-content-
+  alphabet-description-content-
+  alphabet-answer-content-
+  alphabet-video-content-
+  alphabet-listen-content-
+  alphabet-audio-content-
+  alphabet-audio-container-
+  alphabet-audio-true-container-
+  alphabet-audio-false-container-
+  alphabet-video-container-
+  alphabet-video-true-container-
+  alphabet-video-false-container-
+  alphabet-play-button-
+  alphabet-answer-button-true-
+  alphabet-answer-button-false-
+  */
+  

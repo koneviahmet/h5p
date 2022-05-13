@@ -1,0 +1,18 @@
+{
+  "mode": "one",
+  "directive":{
+    "library":"H5P.Audio 1.4",
+    "params":{
+      "playerMode": "minimalistic",
+      "files": [
+        {
+          "path": "audios/kedi.mp3",
+          "mime": "audio/mpeg",
+          "copyright": {
+            "license": "U"
+          }
+        }
+      ]
+    }
+  }
+}

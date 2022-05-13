@@ -552,13 +552,8 @@ H5P.Alphabet = (function ($) {
       return -1;
     }
     
-    
 
     setAlphabets()
-
-
-
-
 
   };
   

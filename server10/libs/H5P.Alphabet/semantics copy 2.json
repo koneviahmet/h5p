@@ -73,6 +73,30 @@
           "label": "Soru",
           "importance": "medium",
           "fields": [
+            { 
+              "label": "Soru Resmi", 
+              "name": "image", 
+              "type": "image",
+              "description": "Soru Resmi Açıklama"
+            },
+            {
+              "name": "audio",
+              "type": "library",
+              "label": "Soru Sesi",
+              "description": "Soru Sesi Açıklama",
+              "options": [
+                "H5P.Audio 1.4"
+              ]
+            },
+            {
+              "name": "video",
+              "type": "library",
+              "label": "Soru Videpo",
+              "description": "Soru Video Açıklama",
+              "options": [
+                "H5P.Video 1.6"
+              ]
+            },
             {
               "name": "correct",
               "type": "select",
@@ -82,7 +106,7 @@
               "showWhen": {
                 "rules": [
                   {
-                    "field": "../../../generalSettings/mode",
+                    "field": "mode",
                     "equals": "one"
                   }
                 ]
@@ -109,7 +133,7 @@
               "showWhen": {
                 "rules": [
                   {
-                    "field": "../../../generalSettings/mode",
+                    "field": "mode",
                     "equals": "two"
                   }
                 ]
@@ -133,30 +157,6 @@
                   "label": "3. Buton",
                   "default": false
                 }
-              ]
-            },
-            { 
-              "label": "Soru Resmi", 
-              "name": "image", 
-              "type": "image",
-              "description": "Soru Resmi Açıklama"
-            },
-            {
-              "name": "audio",
-              "type": "library",
-              "label": "Soru Sesi",
-              "description": "Soru Sesi Açıklama",
-              "options": [
-                "H5P.Audio 1.4"
-              ]
-            },
-            {
-              "name": "video",
-              "type": "library",
-              "label": "Soru Videpo",
-              "description": "Soru Video Açıklama",
-              "options": [
-                "H5P.Video 1.6"
               ]
             }
           ]
