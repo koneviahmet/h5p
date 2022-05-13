@@ -1,0 +1,174 @@
+{
+  "mode": "one",
+  "directive":{
+    "library":"H5P.Audio 1.4",
+    "params":{
+      "playerMode": "minimalistic",
+      "files": [
+        {
+          "path": "audios/yonerge.mp3",
+          "mime": "audio/mpeg",
+          "copyright": {
+            "license": "U"
+          }
+        }
+      ]
+    }
+  },
+  "alphabet": [
+    {
+      "answerOne": true,
+      "answerTwo": false,
+      "answerThree": true,
+      "correct": "true",
+      "description": "Hello worldx",
+      "bgImage": {
+        "path": "images/bg.png"
+      },
+      "image": {
+        "path": "images/nane.png"
+      },
+      "video":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/soru_video.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "videoTrue":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/d_video.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "videoFalse":{
+        "library":"H5P.Video 1.6",
+        "params":{
+          "visuals": {
+            "fit": true,
+            "controls": true
+          },
+          "playback": {
+            "autoplay": false,
+            "loop": false
+          },
+          "sources": [
+            {
+              "path": "videos/y_video.mp4",
+              "mime": "video/mp4",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },    
+      "audio":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/yonerge.mpeg",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "answerOne": true,
+      "answerTwo": false,
+      "answerThree": true,
+      "correct": "true",
+      "description": "Hello worldx",
+      "bgImage": {
+        "path": "images/bg.png"
+      },
+      "image": {
+        "path": "images/nane.png"
+      }, 
+      "audio":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/yonerge.mpeg",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },  
+      "audioTrue":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/d_ses.mpeg",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      },
+      "audioFalse":{
+        "library":"H5P.Audio 1.4",
+        "params":{
+          "playerMode": "minimalistic",
+          "files": [
+            {
+              "path": "audios/y_ses.mpeg",
+              "mime": "audio/mpeg",
+              "copyright": {
+                "license": "U"
+              }
+            }
+          ]
+        }
+      }
+    }
+    
+    
+  ]
+}
