@@ -5,25 +5,100 @@
 
 
 .alphabet-bg-image{
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
 }
 
+
+
 .alphabet-directive-button{
+  position: absolute;
+  top: 8vw;
+  left: 8vw;
+  width: 5vw; 
+  height: 5vw;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: solid 0.5vw #ddd;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.alphabet-directive-button:hover{
+  border: solid 0.5vw  #F32424;
+}
+
+.alphabet-directive-button::before{
+  font-family: 'H5PFontAwesome4';
+  content: '\f04b';
+  font-size: 2vw;
+  color: #3487df;
+}
+
+.alphabet-directive-button:hover::before{
+  font-family: 'H5PFontAwesome4';
+  content: '\f04c';
+  color: #F32424;
+}
+
+.alphabet-header-content{
+  text-align: center;
+  padding: 5vw;
+}
+.alphabet-result-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.alphabet-result-table{
+  width: 100%;
+  margin: 4vw 0;
+  padding: 0 4vw;
+}
+
+.alphabet-result-table  th, td {
+  border: 1px solid #ddd;
+  padding: 1vw;
+  color: #333;
+  font-size: 2.6vw;
+}
+
+.alphabet-progress-content{
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 9;
+  height: 2vw;
+  width: 100%;
+  background-color: #ccc;
+  z-index: 3;
 }
 
+.alphabet-progress{
+  padding: 0 0.2vw;
+  height: 2vw;
+  position:absolute;
+  overflow: hidden;
+  min-width: 2%;
+  background-color: #F32424;
+}
 
+.alphabet-progress-span{
 
+  color: #fff;  
+  font-size: 100%;
+}
 
 /* 
+
+
 alphabet-button-content
 alphabet-main-content
 alphabet-result-content

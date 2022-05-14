@@ -9,15 +9,15 @@
         "name": "mode",
         "type": "select",
         "label": "Soru Modu",
-        "description": "Set select style",
+        "description": "Sorunuza uygun bir açıklama seçiniz",
         "options": [
           {
             "value": "one",
-            "label": "Bir"
+            "label": "Doğru/Yanlış"
           },
           {
             "value": "two",
-            "label": "İki"
+            "label": "Üç Seçenekli"
           }
         ],
         "default": "one"
@@ -25,8 +25,8 @@
       {
         "name": "directive",
         "type": "library",
-        "label": "Ses Dosyası",
-        "description": "ses dosyası açıklama",
+        "label": "Yönerge Ses Dosyası",
+        "description": "Tüm sorularda kullanılacak ortak yönerge sesi ekleyin",
         "options": [
           "H5P.Audio 1.4"
         ]
@@ -36,7 +36,7 @@
   {
     "name": "alphabet",
     "type": "list",
-    "label": "Textler",
+    "label": "Sorular",
     "entity": "text block",
     "min": 1,
     "max": 31,
@@ -55,15 +55,15 @@
             {
               "name": "description",
               "type": "text",
-              "widget": "html",
-              "label": "Line of text",
-              "placeholder": "Oslo is the capital of *Norway*."
+              "label": "Açıklama",
+              "description": "Sonuç ekranında gösterilecek açıklama",
+              "placeholder": "Sonuç ekranı için açıklama ekleyiniz"
             },
             { 
               "label": "Arkaplan Resmi", 
               "name": "bgImage", 
               "type": "image",
-              "description": "Arkaplan resmi açıklama"
+              "description": "Arkaplanda gösterilecek resim seçiniz."
             }
           ]
         },

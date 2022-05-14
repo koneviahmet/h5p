@@ -6,7 +6,7 @@
       "playerMode": "minimalistic",
       "files": [
         {
-          "path": "audios/yonerge.mp3",
+          "path": "audios/yonerge.mpeg",
           "mime": "audio/mpeg",
           "copyright": {
             "license": "U"

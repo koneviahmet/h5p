@@ -1,3 +1,93 @@
+.alphabet-play-button-one{
+  position: absolute;
+  top: 28vw;
+  width: 5vw; 
+  height: 5vw;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: solid 0.5vw #ddd;
+  cursor: pointer;
+}
+
+.alphabet-play-button-one:hover{
+  border: solid 0.5vw #F32424;
+}
+
+.alphabet-answer-button-first-one{
+  width: 6vw; 
+  height: 6vw;
+  background-color: #3BACB6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: solid 0.5vw #3BACB6;
+  cursor: pointer;
+  margin-right: 2vw;
+}
+
+.alphabet-answer-button-first-one:hover{
+  border: solid 0.5vw #2F8F9D;
+}
+
+.alphabet-answer-button-second-one{
+  width: 6vw; 
+  height: 6vw;
+  background-color: #EB5353;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: solid 0.5vw #EB5353;
+  cursor: pointer;
+}
+
+.alphabet-answer-button-second-one:hover{
+  border: solid 0.5vw #F32424;
+}
+
+.alphabet-play-button-one::before{
+  font-family: 'H5PFontAwesome4';
+  content: '\f04b';
+  font-size: 1.5vw;
+  color: #3487df;
+}
+
+
+
+.alphabet-play-button-one:hover::before{
+  font-family: 'H5PFontAwesome4';
+  content: '\f04c';
+  color: #F2F2F2;
+}
+
+
+.alphabet-answer-button-first-one::before{
+  font-family: 'H5PFontAwesome4';
+  content: '\f00c';
+  font-size: 2.5vw;
+  color: #F2F2F2;
+}
+
+.alphabet-answer-button-first-one:hover::before{
+  color: #2F8F9D;
+}
+
+.alphabet-answer-button-second-one::before{
+  font-family: 'H5PFontAwesome4';
+  content: '\f00d';
+  font-size: 2.5vw;
+  color: #F2F2F2;
+}
+
+.alphabet-answer-button-second-one:hover::before{
+  color: #F32424;
+}
+
+
 
 /* dinleme butonu */
 .alphabet-listen-content-one{
@@ -11,29 +101,18 @@
   justify-content: center;
 }
 
-
-.alphabet-play-button-one{
- position: absolute;
- top: 55%;
- color: red;
- height: 5%;
-}
-
 .alphabet-answer-content-one{
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
-  top: 65%;
+  top: 35vw;
   z-index: 1;
   display: flex;
   justify-content: center;
 }
 
 
-.alphabet-answer-content-one button{
- height: 5%;
-}
 
 
 /* soru resmi */
@@ -50,8 +129,8 @@
 
 .alphabet-image-one{
   position: absolute;
-  top: 20%;
-  max-height: 30%;
+  top: 10vw;
+  max-height: 15vw;
 
 }  
 
