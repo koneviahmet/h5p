@@ -102,11 +102,6 @@
 }
 
 
-
-
-
-
-
 /* dinleme butonu */
 .alphabet-listen-content-two{
   position: absolute;
@@ -165,7 +160,7 @@
   top: 0;
   background-color: #ccc;
   z-index: 10;
-  opacity: 5;
+  opacity: 1;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -29,13 +29,13 @@ H5P.Alphabet = (function ($) {
     var whichVideo        = null; //questionVideo, trueVideo, falseVideo
     var whichAudio        = null; //questionAudio, trueAudio, falseAudio       
     var audio,audioTrue,audioFalse,video,videoTrue,videoFalse,directiveAudio;
-    var directive = self.options.directive 
+    var directive         = self.options.directive ? self.options.directive : null
    
+
 
     // Set class on container to identify it as a greeting card
     // container.  Allows for styling later.
     $container.addClass("h5p-alphabet");
-
 
     var nextBackButtonContent = $('<div>', {'class': "alphabet-button-content"}).hide()
     var directiveButton       = $('<div>', {'class': "alphabet-directive-button"}).html("")
@@ -46,10 +46,11 @@ H5P.Alphabet = (function ($) {
     var nextButton            = $('<button>', {'class': "alphabet-next-button"}).html("İleri")
     var backButton            = $('<button>', {'class': "alphabet-back-button"}).html("Geri")
     var restartButton         = $('<button>', {'class': "alphabet-restart-button"}).html("Yeniden Başla")
-    var progressContent         = $('<div>', {'class': "alphabet-progress-content"}).hide()
-    var progress                = $('<div>', {'class': "alphabet-progress"})
-    var progressSpan            = $('<span>', {'class': "alphabet-progress-span"}).html("15")
+    var progressContent       = $('<div>', {'class': "alphabet-progress-content"}).hide()
+    var progress              = $('<div>', {'class': "alphabet-progress"})
+    var progressSpan          = $('<span>', {'class': "alphabet-progress-span"}).html("15")
     progressContent.append(progress.append(progressSpan))
+    
 
     restartButton.on("click", function(){
       answers           = [];
@@ -64,7 +65,9 @@ H5P.Alphabet = (function ($) {
 
     headerContent.append(restartButton)
     $container.append(headerContent);
-    $container.append(directiveButton);
+    if (directive) {
+      $container.append(directiveButton);
+    }
 
     nextBackButtonContent.append(nextButton)
     nextBackButtonContent.append(backButton)
@@ -179,7 +182,7 @@ H5P.Alphabet = (function ($) {
 
 
       var imageContent          = $('<div>', {'class': "alphabet-image-content-" + alphabet.mode}).hide()
-      var bgImageContent        = $('<div>', {'class': "alphabet-bg-image-content-" + alphabet.mode}).hide()
+      var bgImageContent        = $('<div>', {'class': "alphabet-bg-image-content-" + alphabet.mode})
       var descriptionContent    = $('<div>', {'class': "alphabet-description-content-" + alphabet.mode}).hide()
       var answerContent         = $('<div>', {'class': "alphabet-answer-content-" + alphabet.mode})
       var checkContent         = $('<div>', {'class': "alphabet-check-content-" + alphabet.mode})
@@ -211,6 +214,7 @@ H5P.Alphabet = (function ($) {
       mainContent.append(videoContent);
       $container.append(mainContent);
       $container.append(progressContent);
+      
 
       
 
@@ -235,8 +239,9 @@ H5P.Alphabet = (function ($) {
         animate_1(imageContent)
       }
 
+
+
       if (alphabet.bgImage && alphabet.bgImage.path) {
-        bgImageContent.show()
         bgImageContent.html($('<img>',{
           class: 'alphabet-bg-image',
           src: H5P.getPath(alphabet.bgImage.path, id),
@@ -624,7 +629,9 @@ H5P.Alphabet = (function ($) {
       })
     }
 
-    setAlphabets()
+    if (self.options.alphabet) {
+      setAlphabets()
+    }
     //showResultContent()
 
   };

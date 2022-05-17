@@ -156,7 +156,7 @@
               "label": "Soru Videpo",
               "description": "Soru Video Açıklama",
               "options": [
-                "H5P.Video 1.6"
+                "H5P.Video 1.5"
               ]
             }
           ]
@@ -182,7 +182,7 @@
               "label": "Video Doğru",
               "description": "Açıkalama",
               "options": [
-                "H5P.Video 1.6"
+                "H5P.Video 1.5"
               ]
             }
 
@@ -209,7 +209,7 @@
               "label": "Video Yanlış",
               "description": "Açıkalama",
               "options": [
-                "H5P.Video 1.6"
+                "H5P.Video 1.5"
               ]
             }
 
