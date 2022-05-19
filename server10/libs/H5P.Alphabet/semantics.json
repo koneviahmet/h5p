@@ -3,13 +3,15 @@
     "name": "generalSettings",
     "type": "group",
     "label": "Genel Ayarlar (Mod-Yönerge)",
-    "importance": "medium",
+    "importance": "high",
+    "expanded": true,
     "fields": [
       {
         "name": "mode",
         "type": "select",
         "label": "Soru Modu",
-        "description": "Sorunuza uygun bir açıklama seçiniz",
+        "optional": true,
+        "description": "Sorularınızda kullanılacak modu seçiniz.",
         "options": [
           {
             "value": "one",
@@ -37,7 +39,13 @@
     "name": "alphabet",
     "type": "list",
     "label": "Sorular",
-    "entity": "text block",
+    "entity": "Soru",
+    "widgets": [
+      {
+        "name": "VerticalTabs",
+        "label": "Default"
+      }
+    ],
     "min": 1,
     "max": 31,
     "field": {
@@ -50,7 +58,7 @@
         {
           "name": "groupGeneralSettings",
           "type": "group",
-          "label": "Soru Bilgileri (Başlık - Arkaplan)",
+          "label": "Genel",
           "importance": "medium",
           "fields": [
             {
@@ -71,13 +79,13 @@
         {
           "name": "groupQuestion",
           "type": "group",
-          "label": "Soru",
+          "label": "Soru İçeriği",
           "importance": "high",
           "fields": [
             {
               "name": "correct",
               "type": "select",
-              "label": "Mod 1 Cevap Anahtarı",
+              "label": "Cevap Anahtarı",
               "description": "Doğru cevabı seçiniz açıklama",
               "widget": "showWhen",
               "showWhen": {
@@ -104,7 +112,7 @@
               "name": "groupModeTwoCorrect",
               "type": "group",
               "expanded": true,
-              "label": "Mod 2 Cevap Anahtarı",
+              "label": "Cevap Anahtarı",
               "importance": "medium",
               "widget": "showWhen",
               "showWhen": {
@@ -165,7 +173,7 @@
         {
           "name": "groupTrueAnswer",
           "type": "group",
-          "label": "Doğru Cevap",
+          "label": "Doğru Geri Bildirim",
           "importance": "medium",
           "fields": [
             {
@@ -192,7 +200,7 @@
         {
           "name": "groupFalseAnswer",
           "type": "group",
-          "label": "Yanlış Cevap",
+          "label": "Yanlış Geri Bildirim",
           "importance": "medium",
           "fields": [
             {

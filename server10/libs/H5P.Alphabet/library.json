@@ -60,6 +60,11 @@
       "machineName": "H5PEditor.Wizard",
       "majorVersion": 1,
       "minorVersion": 2
+    },
+    {
+      "machineName": "H5PEditor.VerticalTabs",
+      "majorVersion": 1,
+      "minorVersion": 3
     }
   ],
   "metadataSettings": {
