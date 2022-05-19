@@ -2,7 +2,7 @@
   {
     "name": "generalSettings",
     "type": "group",
-    "label": "Genel Ayarlar",
+    "label": "Genel Ayarlar (Mod-Yönerge)",
     "importance": "medium",
     "fields": [
       {
@@ -43,13 +43,14 @@
     "field": {
       "name": "media",
       "type": "group",
-      "label": "Alphabet",
+      "label": "Soru",
+      "widget": "wizard",
       "importance": "medium",
       "fields": [
         {
           "name": "groupGeneralSettings",
           "type": "group",
-          "label": "Soru Genel Ayarları",
+          "label": "Soru Bilgileri (Başlık - Arkaplan)",
           "importance": "medium",
           "fields": [
             {
@@ -71,7 +72,7 @@
           "name": "groupQuestion",
           "type": "group",
           "label": "Soru",
-          "importance": "medium",
+          "importance": "high",
           "fields": [
             {
               "name": "correct",

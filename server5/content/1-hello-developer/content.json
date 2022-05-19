@@ -1,9 +1,0 @@
-{
-  "greeting": "Hello worldx",
-  "task":{
-    "library":"H5P.Audio 1.19",
-    "params":{
-    }
-  }
-}
-

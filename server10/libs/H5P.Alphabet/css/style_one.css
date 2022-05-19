@@ -145,18 +145,11 @@
   height: 100%;
   left: 0;
   top: 0;
-  background-color: #ccc;
   z-index: 10;
   opacity: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-
-.alphabet-video-container-one{
-  width: 80% !important;
-  height: 80% !important;
 }
 
 

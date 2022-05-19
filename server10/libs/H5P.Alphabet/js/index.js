@@ -268,7 +268,7 @@ H5P.Alphabet = (function ($) {
           class: 'alphabet-bg-image',
           src: H5P.getPath(alphabet.bgImage.path, id),
           load: function () {
-            //self.trigger('resize')
+            self.trigger('resize')
           }
         }))
       }
@@ -278,6 +278,7 @@ H5P.Alphabet = (function ($) {
       if (directive.params && directive.params.files) { 
           listenContent.show()
           audioContainer.show()
+        
           directiveAudio    = H5P.newRunnable(directive, id);
           //directiveAudio.on('resize', function(){ self.trigger('resize');})
           directiveAudio.attach(audioContainer);
