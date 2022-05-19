@@ -3,34 +3,35 @@
   top: 28vw;
   width: 5vw; 
   height: 5vw;
-  background-color: #ccc;
+  background-color: #09b9c1;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: solid 0.5vw #ddd;
+  border: solid 0.5vw #09b9c1;
   cursor: pointer;
 }
 
 .alphabet-play-button-one:hover{
-  border: solid 0.5vw #F32424;
+  background-color:#fff;
 }
+
 
 .alphabet-answer-button-first-one{
   width: 6vw; 
   height: 6vw;
-  background-color: #3BACB6;
+  background-color: #7abe26;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: solid 0.5vw #3BACB6;
+  border: solid 0.5vw #7abe26;
   cursor: pointer;
   margin-right: 2vw;
 }
 
 .alphabet-answer-button-first-one:hover{
-  border: solid 0.5vw #2F8F9D;
+  background-color:#fff;
 }
 
 .alphabet-answer-button-second-one{
@@ -46,22 +47,20 @@
 }
 
 .alphabet-answer-button-second-one:hover{
-  border: solid 0.5vw #F32424;
+  background-color:#fff;
 }
 
 .alphabet-play-button-one::before{
   font-family: 'H5PFontAwesome4';
   content: '\f04b';
-  font-size: 1.5vw;
-  color: #3487df;
+  font-size: 1.8vw;
+  color: #fff;
 }
 
 
 
 .alphabet-play-button-one:hover::before{
-  font-family: 'H5PFontAwesome4';
-  content: '\f04c';
-  color: #F2F2F2;
+  color: #09b9c1;
 }
 
 
@@ -69,11 +68,11 @@
   font-family: 'H5PFontAwesome4';
   content: '\f00c';
   font-size: 2.5vw;
-  color: #F2F2F2;
+  color: #fff;
 }
 
 .alphabet-answer-button-first-one:hover::before{
-  color: #2F8F9D;
+  color: #7abe26;
 }
 
 .alphabet-answer-button-second-one::before{
@@ -84,7 +83,7 @@
 }
 
 .alphabet-answer-button-second-one:hover::before{
-  color: #F32424;
+  color: #EB5353;
 }
 
 
@@ -138,32 +137,17 @@
 
 
 
-/** video **/
-.alphabet-video-content-one{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 10;
-  opacity: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 
 
 .de-active-button-one{
   pointer-events:none;
-  color:#AAA;
-  background:#F5F5F5;
+  opacity: 0.4;
 }
 
 
 .active-button-one{
-  background-color: red;
-  color: #FFF;
+  opacity: 1;
 }
 
 

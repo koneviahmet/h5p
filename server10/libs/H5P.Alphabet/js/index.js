@@ -25,6 +25,7 @@ H5P.Alphabet = (function ($) {
     var id                = this.id
     var selectIndex       = 0;
     var trueScore         = 0;
+    var is_progress       = false
     var answers           = [];
     var isNextButton      = false
     var whichVideo        = null; //questionVideo, trueVideo, falseVideo
@@ -33,7 +34,8 @@ H5P.Alphabet = (function ($) {
     
     console.log(self.options.generalSettings.directive);
     var directive         = self.options.generalSettings.directive
-
+    var trueVoice  = new Audio(getLibraryPath("true.mp3"));
+    var falseVoice = new Audio(getLibraryPath("false.mp3"));
       
 
     // Set class on container to identify it as a greeting card
@@ -53,7 +55,10 @@ H5P.Alphabet = (function ($) {
     var progress              = $('<div>', {'class': "alphabet-progress"})
     var progressSpan          = $('<span>', {'class': "alphabet-progress-span"}).html("15")
     progressContent.append(progress.append(progressSpan))
+ 
     
+
+
 
     restartButton.on("click", function(){
       answers           = [];
@@ -201,14 +206,12 @@ H5P.Alphabet = (function ($) {
       }
 
 
-
-
       var imageContent          = $('<div>', {'class': "alphabet-image-content-" + alphabet.mode}).hide()
       var bgImageContent        = $('<div>', {'class': "alphabet-bg-image-content-" + alphabet.mode})
       var descriptionContent    = $('<div>', {'class': "alphabet-description-content-" + alphabet.mode}).hide()
       var answerContent         = $('<div>', {'class': "alphabet-answer-content-" + alphabet.mode})
-      var checkContent         = $('<div>', {'class': "alphabet-check-content-" + alphabet.mode})
-      var videoContent          = $('<div>', {'class': "alphabet-video-content-" + alphabet.mode}).hide()
+      var checkContent          = $('<div>', {'class': "alphabet-check-content-" + alphabet.mode})
+      var videoContent          = $('<div>', {'class': "alphabet-video-content"}).hide()
       
       var listenContent         = $('<div>', {'class': "alphabet-listen-content-" + alphabet.mode}).hide()
       var audioContent          = $('<div>', {'class': "alphabet-audio-content-" + alphabet.mode}).hide()
@@ -223,7 +226,7 @@ H5P.Alphabet = (function ($) {
       var firstButton     = $('<div>', {'class': "alphabet-answer-button alphabet-answer-button-first-" + alphabet.mode}).html("")
       var secondButton    = $('<div>', {'class': "alphabet-answer-button alphabet-answer-button-second-" + alphabet.mode}).html("")
       var threeButton     = $('<div>', {'class': "alphabet-answer-button alphabet-answer-button-three-" + alphabet.mode}).html("")
-      var checkButton     = $('<div>', {'class': "alphabet-answer-button alphabet-answer-button-check-" + alphabet.mode}).html("Kontrol Et")
+      var checkButton     = $('<div>', {'class': "alphabet-answer-button alphabet-answer-button-check-" + alphabet.mode}).html("")
       
       mainContent.html('')
       mainContent.append(imageContent);
@@ -235,15 +238,16 @@ H5P.Alphabet = (function ($) {
       mainContent.append(audioContent);
       mainContent.append(videoContent);
       $container.append(mainContent);
-      $container.append(progressContent);
-      
 
+      if(is_progress){
+        $container.append(progressContent);
+      }
       
 
       //Başlangıç animasonları
-      animate_4(firstButton)
-      animate_4(secondButton)
-      animate_4(threeButton)
+      animate(firstButton, "animate__backInUp")
+      animate(secondButton, "animate__backInUp")
+      animate(threeButton, "animate__backInUp")
       
       //add images
       descriptionContent.html(alphabet.description);
@@ -258,7 +262,7 @@ H5P.Alphabet = (function ($) {
         }))
 
 
-        animate_1(imageContent)
+        animate(imageContent, "animate__pulse")
       }
 
 
@@ -486,13 +490,52 @@ H5P.Alphabet = (function ($) {
       *** cevap için sadece ses var ise ses oynasın
       *** cevao için sadece video var ise video oynasın
       */
+
       function checkAnswer(){
+        deActiveButton()
+        var bgColor = null
+        if (selectAnswer.join("-") == questionAnswer) {
+          trueVoice.play()
+          animate(imageContent, "animate__heartBeat")
+          animate(firstButton, "animate__heartBeat")
+          animate(secondButton, "animate__heartBeat")
+          animate(threeButton, "animate__heartBeat")
+          animate(playButton, "animate__heartBeat")
+
+          bgColor = "#7abe26"
+        }else{
+          falseVoice.play()
+
+          animate(imageContent, "animate__swing")
+          animate(firstButton, "animate__swing")
+          animate(secondButton, "animate__swing")
+          animate(threeButton, "animate__swing")
+          animate(playButton, "animate__swing")
+
+          bgColor = "#EB5353"
+        }
+
+        //arkaplana renk atalım
+        bgImageContent.css('opacity','0.4');
+        $container.css('background', bgColor);
+        setTimeout(function(){
+          bgImageContent.css('opacity','1');
+          $container.css('background','#fff');
+        }, 400);
+
+        setTimeout(function(){
+          checkAnswerGet()
+        }, 1000);
+      }
+
+      function checkAnswerGet(){
         var newAnswer = {
           "index": selectIndex,
           "description": alphabet.description,
         }
        
         if (selectAnswer.join("-") == questionAnswer) {
+          //doğru yaptı demektir
           if (alphabet.audioTrue) {
             audioTrue.play()
             whichAudio = "trueAudio"
@@ -505,11 +548,8 @@ H5P.Alphabet = (function ($) {
           }
 
           newAnswer.correct = true;
-          animate_2(imageContent)
-
+               
         }else{
-
-          animate_3(imageContent)
 
           if(alphabet.audioFalse){ 
             audioFalse.play()
@@ -632,39 +672,33 @@ H5P.Alphabet = (function ($) {
     }
     
 
-
-    function animate_1(selected){
-      selected.addClass('animate__animated animate__pulse').one('mozAnimationEnd webkitAnimationEnd oanimationend MSAnimationEnd animationend', function(){
-        $(this).removeClass("animate__animated animate__pulse")
+    function animate(selected, animate){
+      selected.addClass('animate__animated ' + animate).one('mozAnimationEnd webkitAnimationEnd oanimationend MSAnimationEnd animationend', function(){
+        $(this).removeClass("animate__animated " + animate)
       })
     }
 
-    function animate_2(selected){
-      selected.addClass('animate__animated animate__pulse').one('mozAnimationEnd webkitAnimationEnd oanimationend MSAnimationEnd animationend', function(){
-        $(this).removeClass("animate__animated animate__pulse")
-      })
-    }
 
-    function animate_3(selected){
-      selected.addClass('animate__animated animate__tada').one('mozAnimationEnd webkitAnimationEnd oanimationend MSAnimationEnd animationend', function(){
-        $(this).removeClass("animate__animated animate__tada")
-      })
-    }
-
-    function animate_4(selected){
-      selected.addClass('animate__animated animate__backInUp').one('mozAnimationEnd webkitAnimationEnd oanimationend MSAnimationEnd animationend', function(){
-        $(this).removeClass("animate__animated animate__backInUp")
-      })
-    }
-    
 
     if (self.options.alphabet) {
       setAlphabets()
     }
     //showResultContent()
 
+    //truevoice bitti
+    trueVoice.addEventListener('ended', function(){
+      console.log("bitti");
+    })
+ 
+
+    function getLibraryPath(file){
+      return "/libs/"+self.libraryInfo.machineName+"/" + file
+    }
+
   };
   
+
+
  
   return C;
 })(H5P.jQuery);

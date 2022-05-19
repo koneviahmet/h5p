@@ -1,0 +1,552 @@
+{
+  "generalSettings": {
+    "mode": "one",
+    "directive": {
+      "params": {
+        "playerMode": "minimalistic",
+        "fitToWrapper": false,
+        "controls": true,
+        "autoplay": false,
+        "playAudio": "Ses dosyasını başlat",
+        "pauseAudio": "Ses dosyasını duraklat",
+        "contentName": "Ses",
+        "audioNotSupported": "Tarayıcınız bu ses dosyasını desteklemiyor",
+        "files": [
+          {
+            "path": "audios/audio-yUJHCg7o.mp3",
+            "mime": "audio/mpeg",
+            "copyright": {
+              "license": "U"
+            }
+          }
+        ]
+      },
+      "library": "H5P.Audio 1.4",
+      "subContentId": "ee19597f-5351-4190-8cc5-846b0776caad",
+      "metadata": {
+        "contentType": "Ses (Audio)",
+        "license": "U",
+        "title": "Başlıksız Ses (Audio)",
+        "authors": [],
+        "changes": [],
+        "extraTitle": "Başlıksız Ses (Audio)"
+      }
+    }
+  },
+  "alphabet": [
+    {
+      "groupGeneralSettings": {
+        "description": "asd",
+        "bgImage": {
+          "path": "images/image-USUxf6gO.png",
+          "mime": "image/png",
+          "copyright": {
+            "license": "U"
+          },
+          "width": 1920,
+          "height": 1080
+        }
+      },
+      "groupQuestion": {
+        "correct": true,
+        "groupModeTwoCorrect": {
+          "answerOne": false,
+          "answerTwo": false,
+          "answerThree": false
+        },
+        "audio": {
+          "params": {
+            "playerMode": "minimalistic",
+            "fitToWrapper": false,
+            "controls": true,
+            "autoplay": false,
+            "playAudio": "Ses dosyasını başlat",
+            "pauseAudio": "Ses dosyasını duraklat",
+            "contentName": "Ses",
+            "audioNotSupported": "Tarayıcınız bu ses dosyasını desteklemiyor",
+            "files": [
+              {
+                "path": "audios/audio-HWLuL8fn.mp3",
+                "mime": "audio/mpeg",
+                "copyright": {
+                  "license": "U"
+                }
+              }
+            ]
+          },
+          "library": "H5P.Audio 1.4",
+          "subContentId": "85871fe5-28c5-4679-b251-4894c3efd025",
+          "metadata": {
+            "contentType": "Ses (Audio)",
+            "license": "U",
+            "title": "Başlıksız Ses (Audio)",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Başlıksız Ses (Audio)"
+          }
+        },
+        "video": {
+          "params": {
+            "visuals": {
+              "fit": true,
+              "controls": true
+            },
+            "playback": {
+              "autoplay": false,
+              "loop": false
+            },
+            "l10n": {
+              "name": "Video",
+              "loading": "Video player loading...",
+              "noPlayers": "Found no video players that supports the given video format.",
+              "noSources": "Video is missing sources.",
+              "aborted": "Media playback has been aborted.",
+              "networkFailure": "Network failure.",
+              "cannotDecode": "Unable to decode media.",
+              "formatNotSupported": "Video format not supported.",
+              "mediaEncrypted": "Media encrypted.",
+              "unknownError": "Unknown error.",
+              "invalidYtId": "Invalid YouTube ID.",
+              "unknownYtId": "Unable to find video with the given YouTube ID.",
+              "restrictedYt": "The owner of this video does not allow it to be embedded."
+            },
+            "sources": [
+              {
+                "path": "videos/video-wao1BBto.mp4",
+                "mime": "video/mp4",
+                "copyright": {
+                  "license": "U"
+                }
+              }
+            ]
+          },
+          "library": "H5P.Video 1.5",
+          "subContentId": "b2f76cf7-11e3-44ba-ac9a-d182561ab791",
+          "metadata": {
+            "contentType": "Video",
+            "license": "U",
+            "title": "Başlıksız Video",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Başlıksız Video"
+          }
+        },
+        "image": {
+          "path": "images/image-oIFSvUan.png",
+          "mime": "image/png",
+          "copyright": {
+            "license": "U"
+          },
+          "width": 343,
+          "height": 285
+        }
+      },
+      "groupTrueAnswer": {
+        "audioTrue": {
+          "params": {
+            "playerMode": "minimalistic",
+            "fitToWrapper": false,
+            "controls": true,
+            "autoplay": false,
+            "playAudio": "Ses dosyasını başlat",
+            "pauseAudio": "Ses dosyasını duraklat",
+            "contentName": "Ses",
+            "audioNotSupported": "Tarayıcınız bu ses dosyasını desteklemiyor",
+            "files": [
+              {
+                "path": "audios/audio-jpBf98By.mp3",
+                "mime": "audio/mpeg",
+                "copyright": {
+                  "license": "U"
+                }
+              }
+            ]
+          },
+          "library": "H5P.Audio 1.4",
+          "subContentId": "c7ede9f9-dfdb-41b7-8314-cea9e06de0d6",
+          "metadata": {
+            "contentType": "Ses (Audio)",
+            "license": "U",
+            "title": "Başlıksız Ses (Audio)",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Başlıksız Ses (Audio)"
+          }
+        },
+        "videoTrue": {
+          "params": {
+            "visuals": {
+              "fit": true,
+              "controls": true
+            },
+            "playback": {
+              "autoplay": false,
+              "loop": false
+            },
+            "l10n": {
+              "name": "Video",
+              "loading": "Video player loading...",
+              "noPlayers": "Found no video players that supports the given video format.",
+              "noSources": "Video is missing sources.",
+              "aborted": "Media playback has been aborted.",
+              "networkFailure": "Network failure.",
+              "cannotDecode": "Unable to decode media.",
+              "formatNotSupported": "Video format not supported.",
+              "mediaEncrypted": "Media encrypted.",
+              "unknownError": "Unknown error.",
+              "invalidYtId": "Invalid YouTube ID.",
+              "unknownYtId": "Unable to find video with the given YouTube ID.",
+              "restrictedYt": "The owner of this video does not allow it to be embedded."
+            }
+          },
+          "library": "H5P.Video 1.5",
+          "subContentId": "d97c9a01-65f0-4801-abe2-c164b1a04f03",
+          "metadata": {
+            "contentType": "Video",
+            "license": "U",
+            "title": "Başlıksız Video",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Başlıksız Video"
+          }
+        }
+      },
+      "groupFalseAnswer": {
+        "audioFalse": {
+          "params": {
+            "playerMode": "minimalistic",
+            "fitToWrapper": false,
+            "controls": true,
+            "autoplay": false,
+            "playAudio": "Ses dosyasını başlat",
+            "pauseAudio": "Ses dosyasını duraklat",
+            "contentName": "Ses",
+            "audioNotSupported": "Tarayıcınız bu ses dosyasını desteklemiyor",
+            "files": [
+              {
+                "path": "audios/audio-Mslvpr2H.mp3",
+                "mime": "audio/mpeg",
+                "copyright": {
+                  "license": "U"
+                }
+              }
+            ]
+          },
+          "library": "H5P.Audio 1.4",
+          "subContentId": "6dd98996-d3fb-492a-b0d8-0ed560e3bb31",
+          "metadata": {
+            "contentType": "Ses (Audio)",
+            "license": "U",
+            "title": "Başlıksız Ses (Audio)",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Başlıksız Ses (Audio)"
+          }
+        },
+        "videoFalse": {
+          "params": {
+            "visuals": {
+              "fit": true,
+              "controls": true
+            },
+            "playback": {
+              "autoplay": false,
+              "loop": false
+            },
+            "l10n": {
+              "name": "Video",
+              "loading": "Video player loading...",
+              "noPlayers": "Found no video players that supports the given video format.",
+              "noSources": "Video is missing sources.",
+              "aborted": "Media playback has been aborted.",
+              "networkFailure": "Network failure.",
+              "cannotDecode": "Unable to decode media.",
+              "formatNotSupported": "Video format not supported.",
+              "mediaEncrypted": "Media encrypted.",
+              "unknownError": "Unknown error.",
+              "invalidYtId": "Invalid YouTube ID.",
+              "unknownYtId": "Unable to find video with the given YouTube ID.",
+              "restrictedYt": "The owner of this video does not allow it to be embedded."
+            }
+          },
+          "library": "H5P.Video 1.5",
+          "subContentId": "1e94f71a-0c42-4a6a-b808-e7742a8fc691",
+          "metadata": {
+            "contentType": "Video",
+            "license": "U",
+            "title": "Başlıksız Video",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Başlıksız Video"
+          }
+        }
+      }
+    },
+    {
+      "groupGeneralSettings": {
+        "description": "2. soru",
+        "bgImage": {
+          "path": "images/image-9AaKkD0T.png",
+          "mime": "image/png",
+          "copyright": {
+            "license": "U"
+          },
+          "width": 1920,
+          "height": 1080
+        }
+      },
+      "groupQuestion": {
+        "correct": true,
+        "groupModeTwoCorrect": {
+          "answerOne": false,
+          "answerTwo": false,
+          "answerThree": false
+        },
+        "audio": {
+          "params": {
+            "playerMode": "minimalistic",
+            "fitToWrapper": false,
+            "controls": true,
+            "autoplay": false,
+            "playAudio": "Ses dosyasını başlat",
+            "pauseAudio": "Ses dosyasını duraklat",
+            "contentName": "Ses",
+            "audioNotSupported": "Tarayıcınız bu ses dosyasını desteklemiyor",
+            "files": [
+              {
+                "path": "audios/audio-gtGWVhdb.mp3",
+                "mime": "audio/mpeg",
+                "copyright": {
+                  "license": "U"
+                }
+              }
+            ]
+          },
+          "library": "H5P.Audio 1.4",
+          "subContentId": "176b65e1-9b98-42af-84be-40e717d3d634",
+          "metadata": {
+            "contentType": "Ses (Audio)",
+            "license": "U",
+            "title": "Başlıksız Ses (Audio)",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Başlıksız Ses (Audio)"
+          }
+        },
+        "video": {
+          "params": {
+            "visuals": {
+              "fit": true,
+              "controls": true
+            },
+            "playback": {
+              "autoplay": false,
+              "loop": false
+            },
+            "l10n": {
+              "name": "Video",
+              "loading": "Video player loading...",
+              "noPlayers": "Found no video players that supports the given video format.",
+              "noSources": "Video is missing sources.",
+              "aborted": "Media playback has been aborted.",
+              "networkFailure": "Network failure.",
+              "cannotDecode": "Unable to decode media.",
+              "formatNotSupported": "Video format not supported.",
+              "mediaEncrypted": "Media encrypted.",
+              "unknownError": "Unknown error.",
+              "invalidYtId": "Invalid YouTube ID.",
+              "unknownYtId": "Unable to find video with the given YouTube ID.",
+              "restrictedYt": "The owner of this video does not allow it to be embedded."
+            },
+            "sources": [
+              {
+                "path": "videos/video-O8A4IXSf.mp4",
+                "mime": "video/mp4",
+                "copyright": {
+                  "license": "U"
+                }
+              }
+            ]
+          },
+          "library": "H5P.Video 1.5",
+          "subContentId": "a00b96ae-74f8-4e18-8979-ab17e0f9e9d4",
+          "metadata": {
+            "contentType": "Video",
+            "license": "U",
+            "title": "Başlıksız Video",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Başlıksız Video"
+          }
+        },
+        "image": {
+          "path": "images/image-fyDNhlE7.png",
+          "mime": "image/png",
+          "copyright": {
+            "license": "U"
+          },
+          "width": 343,
+          "height": 285
+        }
+      },
+      "groupTrueAnswer": {
+        "audioTrue": {
+          "params": {
+            "playerMode": "minimalistic",
+            "fitToWrapper": false,
+            "controls": true,
+            "autoplay": false,
+            "playAudio": "Ses dosyasını başlat",
+            "pauseAudio": "Ses dosyasını duraklat",
+            "contentName": "Ses",
+            "audioNotSupported": "Tarayıcınız bu ses dosyasını desteklemiyor",
+            "files": [
+              {
+                "path": "audios/audio-TywTmZn9.mp3",
+                "mime": "audio/mpeg",
+                "copyright": {
+                  "license": "U"
+                }
+              }
+            ]
+          },
+          "library": "H5P.Audio 1.4",
+          "subContentId": "61e3e775-23ec-4662-b4ec-ffb02bc9d8b8",
+          "metadata": {
+            "contentType": "Ses (Audio)",
+            "license": "U",
+            "title": "Başlıksız Ses (Audio)",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Başlıksız Ses (Audio)"
+          }
+        },
+        "videoTrue": {
+          "params": {
+            "visuals": {
+              "fit": true,
+              "controls": true
+            },
+            "playback": {
+              "autoplay": false,
+              "loop": false
+            },
+            "l10n": {
+              "name": "Video",
+              "loading": "Video player loading...",
+              "noPlayers": "Found no video players that supports the given video format.",
+              "noSources": "Video is missing sources.",
+              "aborted": "Media playback has been aborted.",
+              "networkFailure": "Network failure.",
+              "cannotDecode": "Unable to decode media.",
+              "formatNotSupported": "Video format not supported.",
+              "mediaEncrypted": "Media encrypted.",
+              "unknownError": "Unknown error.",
+              "invalidYtId": "Invalid YouTube ID.",
+              "unknownYtId": "Unable to find video with the given YouTube ID.",
+              "restrictedYt": "The owner of this video does not allow it to be embedded."
+            },
+            "sources": [
+              {
+                "path": "videos/video-14pjZHNk.mp4",
+                "mime": "video/mp4",
+                "copyright": {
+                  "license": "U"
+                }
+              }
+            ]
+          },
+          "library": "H5P.Video 1.5",
+          "subContentId": "4806c029-847a-4e97-9539-492e13bcbd9c",
+          "metadata": {
+            "contentType": "Video",
+            "license": "U",
+            "title": "Başlıksız Video",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Başlıksız Video"
+          }
+        }
+      },
+      "groupFalseAnswer": {
+        "audioFalse": {
+          "params": {
+            "playerMode": "minimalistic",
+            "fitToWrapper": false,
+            "controls": true,
+            "autoplay": false,
+            "playAudio": "Ses dosyasını başlat",
+            "pauseAudio": "Ses dosyasını duraklat",
+            "contentName": "Ses",
+            "audioNotSupported": "Tarayıcınız bu ses dosyasını desteklemiyor",
+            "files": [
+              {
+                "path": "audios/audio-Dgxutdu3.mp3",
+                "mime": "audio/mpeg",
+                "copyright": {
+                  "license": "U"
+                }
+              }
+            ]
+          },
+          "library": "H5P.Audio 1.4",
+          "subContentId": "82679463-cbfa-45e4-8b46-44c3e3226569",
+          "metadata": {
+            "contentType": "Ses (Audio)",
+            "license": "U",
+            "title": "Başlıksız Ses (Audio)",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Başlıksız Ses (Audio)"
+          }
+        },
+        "videoFalse": {
+          "params": {
+            "visuals": {
+              "fit": true,
+              "controls": true
+            },
+            "playback": {
+              "autoplay": false,
+              "loop": false
+            },
+            "l10n": {
+              "name": "Video",
+              "loading": "Video player loading...",
+              "noPlayers": "Found no video players that supports the given video format.",
+              "noSources": "Video is missing sources.",
+              "aborted": "Media playback has been aborted.",
+              "networkFailure": "Network failure.",
+              "cannotDecode": "Unable to decode media.",
+              "formatNotSupported": "Video format not supported.",
+              "mediaEncrypted": "Media encrypted.",
+              "unknownError": "Unknown error.",
+              "invalidYtId": "Invalid YouTube ID.",
+              "unknownYtId": "Unable to find video with the given YouTube ID.",
+              "restrictedYt": "The owner of this video does not allow it to be embedded."
+            },
+            "sources": [
+              {
+                "path": "videos/video-DMAFKhmr.mp4",
+                "mime": "video/mp4",
+                "copyright": {
+                  "license": "U"
+                }
+              }
+            ]
+          },
+          "library": "H5P.Video 1.5",
+          "subContentId": "fa7c9f58-547a-4761-887c-a9bfca4f75be",
+          "metadata": {
+            "contentType": "Video",
+            "license": "U",
+            "title": "Başlıksız Video",
+            "authors": [],
+            "changes": [],
+            "extraTitle": "Başlıksız Video"
+          }
+        }
+      }
+    }
+  ]
+}
