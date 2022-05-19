@@ -1,7 +1,9 @@
+
+
 .alphabet-play-button-one{
   position: absolute;
   top: 28vw;
-  width: 5vw; 
+  width: 5vw;
   height: 5vw;
   background-color: #09b9c1;
   display: flex;
@@ -16,9 +18,8 @@
   background-color:#fff;
 }
 
-
 .alphabet-answer-button-first-one{
-  width: 6vw; 
+  width: 6vw;
   height: 6vw;
   background-color: #7abe26;
   display: flex;
@@ -35,7 +36,7 @@
 }
 
 .alphabet-answer-button-second-one{
-  width: 6vw; 
+  width: 6vw;
   height: 6vw;
   background-color: #EB5353;
   display: flex;
@@ -58,11 +59,9 @@
 }
 
 
-
 .alphabet-play-button-one:hover::before{
   color: #09b9c1;
 }
-
 
 .alphabet-answer-button-first-one::before{
   font-family: 'H5PFontAwesome4';
@@ -103,7 +102,6 @@
 .alphabet-answer-content-one{
   position: absolute;
   width: 100%;
-  height: 100%;
   left: 0;
   top: 35vw;
   z-index: 1;
@@ -131,7 +129,7 @@
   top: 10vw;
   max-height: 15vw;
 
-}  
+}
 
 
 
@@ -153,8 +151,8 @@
 
 
 
-  
-  /* 
+
+  /*
   alphabet-button-content
   alphabet-main-content
   alphabet-result-content
@@ -165,9 +163,9 @@
   alphabet-restart-button
   alphabet-answer-button
   */
-  
-  
-  /* one 
+
+
+  /* one
   alphabet-image-content-
   alphabet-bg-image-content-
   alphabet-description-content-
@@ -185,4 +183,3 @@
   alphabet-answer-button-true-
   alphabet-answer-button-false-
   */
-  

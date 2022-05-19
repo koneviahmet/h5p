@@ -1,8 +1,14 @@
+
 .h5p-alphabet{
-  min-width: 540px;
-  min-height: 680px;
+  min-width: 150px;
+  min-height: 200px;
 }
 
+.can_small_cp{
+    position: absolute;
+    height: calc(100% - 0.35em);
+    width: 100%;
+}
 
 .alphabet-bg-image{
   width: 100%;
@@ -10,11 +16,21 @@
   z-index: 0;
 }
 
+.alphabet-restart-button{
+    color: #fff;
+    font-size: 2vw;
+    background-color: #09b9c1;
+    border-radius: 5%;
+    border: solid 0.5vw #09b9c1;
+    cursor: pointer;
+    z-index: 2;
+}
+
 .alphabet-directive-button{
   position: absolute;
   top: 8vw;
   left: 8vw;
-  width: 5vw; 
+  width: 5vw;
   height: 5vw;
   background-color: #09b9c1;
   display: flex;
@@ -47,18 +63,20 @@
   text-align: center;
   padding: 5vw;
 }
+
 .alphabet-result-content{
+
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   height: 100%;
   width: 100%;
 }
 
 .alphabet-result-table{
+
   width: 100%;
-  margin: 4vw 0;
+  margin: 3vw 0;
   padding: 0 4vw;
 }
 
@@ -90,7 +108,7 @@
 
 
 .alphabet-progress-span{
-  color: #fff;  
+  color: #fff;
   font-size: 100%;
 }
 
@@ -108,11 +126,13 @@
 }
 
 .h5p-video{
-  height: 45vw !important;
+  height: 35vw !important;
 }
 
 
-/* 
+
+
+/*
 alphabet-button-content
 alphabet-main-content
 alphabet-result-content
@@ -125,7 +145,7 @@ alphabet-answer-button
 */
 
 
-/* one 
+/* one
 alphabet-image-content-
 alphabet-bg-image-content-
 alphabet-description-content-

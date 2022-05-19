@@ -1,5 +1,5 @@
 var H5P = H5P || {};
- 
+
 H5P.Alphabet = (function ($) {
   /**
    * Constructor function.
@@ -13,7 +13,7 @@ H5P.Alphabet = (function ($) {
     // Keep provided id.
     this.id = id;
   };
- 
+
   /**
    * Attach function called by H5P framework to insert H5P content into
    * page
@@ -29,14 +29,13 @@ H5P.Alphabet = (function ($) {
     var answers           = [];
     var isNextButton      = false
     var whichVideo        = null; //questionVideo, trueVideo, falseVideo
-    var whichAudio        = null; //questionAudio, trueAudio, falseAudio       
+    var whichAudio        = null; //questionAudio, trueAudio, falseAudio
     var audio,audioTrue,audioFalse,video,videoTrue,videoFalse,directiveAudio;
-    
-    console.log(self.options.generalSettings.directive);
+
     var directive         = self.options.generalSettings.directive
     var trueVoice  = new Audio(getLibraryPath("true.mp3"));
     var falseVoice = new Audio(getLibraryPath("false.mp3"));
-      
+
 
     // Set class on container to identify it as a greeting card
     // container.  Allows for styling later.
@@ -55,8 +54,8 @@ H5P.Alphabet = (function ($) {
     var progress              = $('<div>', {'class': "alphabet-progress"})
     var progressSpan          = $('<span>', {'class': "alphabet-progress-span"}).html("15")
     progressContent.append(progress.append(progressSpan))
- 
-    
+
+
 
 
 
@@ -82,18 +81,18 @@ H5P.Alphabet = (function ($) {
 
     $container.append(resultContent);
     $container.append(nextBackButtonContent);
-     
+
     nextButton.on("click", function(){
       selectIndex = selectIndex + 1
       setAlphabets(selectIndex)
     })
 
-    
+
     backButton.on("click", function(){
       selectIndex = selectIndex - 1
       setAlphabets(selectIndex)
     })
-    
+
 
     function setNextBackButton(){
       directiveButton.show()
@@ -102,22 +101,22 @@ H5P.Alphabet = (function ($) {
         nextBackButtonContent.show()
         backButton.show()
         nextButton.show()
-  
+
         if (self.options.alphabet.length < 2) {
           nextBackButtonContent.hide()
         }
-  
+
         if (selectIndex == 0) {
           backButton.hide()
         }
-        
+
         if (selectIndex + 1 == self.options.alphabet.length) {
           nextButton.hide()
         }
       }
     }
 
-    
+
     function showResultContent(){
       nextBackButtonContent.hide()
       directiveButton.hide()
@@ -128,7 +127,7 @@ H5P.Alphabet = (function ($) {
       var $scoreBar = H5P.JoubelUI.createScoreBar(self.options.alphabet.length, 'This is a scorebar');
       $scoreBar.setScore(trueScore)
       var table = $('<table>', {'class': "alphabet-result-table"})
-      
+
       // var newAnswer = {
       //   "index": 1,
       //   "description": "açıklama olacak burada 2",
@@ -144,7 +143,7 @@ H5P.Alphabet = (function ($) {
         tr.append('<td>'+answers[i].description+'</td><td>'+correct+'</td>')
         table.append(tr)
       }
-      
+
 
       resultContent.html("");
       resultContent.append(table);
@@ -163,11 +162,13 @@ H5P.Alphabet = (function ($) {
 
     }
 
+
+
     //setalphabets
     function setAlphabets(){
       setNextBackButton()
       whichVideo  = null;
-      whichAudio  = null; 
+      whichAudio  = null;
 
       var alphabet          = self.options.alphabet[selectIndex]
       alphabet.mode         = self.options.generalSettings.mode
@@ -186,13 +187,13 @@ H5P.Alphabet = (function ($) {
       alphabet.videoTrue    = alphabet.groupTrueAnswer.videoTrue ? alphabet.groupTrueAnswer.videoTrue : null;
       alphabet.audioFalse   = alphabet.groupFalseAnswer.audioFalse ? alphabet.groupFalseAnswer.audioFalse : null;
       alphabet.videoFalse   = alphabet.groupFalseAnswer.videoFalse ? alphabet.groupFalseAnswer.videoFalse : null;
-      
-  
+
+
 
 
       var questionAnswer  = []
       var selectAnswer    = alphabet.mode == "one" ? [] : ["false","false","false"];
-      
+
       setProgress()
 
       if (alphabet.mode == "one") {
@@ -212,22 +213,22 @@ H5P.Alphabet = (function ($) {
       var answerContent         = $('<div>', {'class': "alphabet-answer-content-" + alphabet.mode})
       var checkContent          = $('<div>', {'class': "alphabet-check-content-" + alphabet.mode})
       var videoContent          = $('<div>', {'class': "alphabet-video-content"}).hide()
-      
+
       var listenContent         = $('<div>', {'class': "alphabet-listen-content-" + alphabet.mode}).hide()
       var audioContent          = $('<div>', {'class': "alphabet-audio-content-" + alphabet.mode}).hide()
       var audioContainer        = $('<div>', {'class': "alphabet-audio-container-" + alphabet.mode}).hide()
-      var audioTrueContainer    = $('<div>', {'class': "alphabet-audio-true-container-" + alphabet.mode}).hide()  
+      var audioTrueContainer    = $('<div>', {'class': "alphabet-audio-true-container-" + alphabet.mode}).hide()
       var audioFalseContainer   = $('<div>', {'class': "alphabet-audio-false-container-" + alphabet.mode}).hide()
       var videoContainer        = $('<div>', {'class': "alphabet-video-container-" + alphabet.mode}).hide()
-      var videoTrueContainer    = $('<div>', {'class': "alphabet-video-true-container-" + alphabet.mode}).hide()  
+      var videoTrueContainer    = $('<div>', {'class': "alphabet-video-true-container-" + alphabet.mode}).hide()
       var videoFalseContainer   = $('<div>', {'class': "alphabet-video-false-container-" + alphabet.mode}).hide()
-  
+
       var playButton      = $('<div>', {'class': "alphabet-play-button-" + alphabet.mode}).html("")
       var firstButton     = $('<div>', {'class': "alphabet-answer-button alphabet-answer-button-first-" + alphabet.mode}).html("")
       var secondButton    = $('<div>', {'class': "alphabet-answer-button alphabet-answer-button-second-" + alphabet.mode}).html("")
       var threeButton     = $('<div>', {'class': "alphabet-answer-button alphabet-answer-button-three-" + alphabet.mode}).html("")
       var checkButton     = $('<div>', {'class': "alphabet-answer-button alphabet-answer-button-check-" + alphabet.mode}).html("")
-      
+
       mainContent.html('')
       mainContent.append(imageContent);
       mainContent.append(bgImageContent);
@@ -242,13 +243,13 @@ H5P.Alphabet = (function ($) {
       if(is_progress){
         $container.append(progressContent);
       }
-      
+
 
       //Başlangıç animasonları
       animate(firstButton, "animate__backInUp")
       animate(secondButton, "animate__backInUp")
       animate(threeButton, "animate__backInUp")
-      
+
       //add images
       descriptionContent.html(alphabet.description);
       if (alphabet.image && alphabet.image.path) {
@@ -261,11 +262,8 @@ H5P.Alphabet = (function ($) {
           }
         }))
 
-
         animate(imageContent, "animate__pulse")
       }
-
-
 
       if (alphabet.bgImage && alphabet.bgImage.path) {
         bgImageContent.html($('<img>',{
@@ -276,13 +274,18 @@ H5P.Alphabet = (function ($) {
           }
         }))
       }
-      
+
+      if(self.parent){
+        //course presentetion ile kullanıyor demektir.
+        bgImageContent.addClass("can_small_cp")
+     }
+
 
       //sesler
-      if (directive.params && directive.params.files) { 
+      if (directive.params && directive.params.files) {
           listenContent.show()
           audioContainer.show()
-        
+
           directiveAudio    = H5P.newRunnable(directive, id);
           //directiveAudio.on('resize', function(){ self.trigger('resize');})
           directiveAudio.attach(audioContainer);
@@ -296,8 +299,8 @@ H5P.Alphabet = (function ($) {
         directive = false
       }
 
-      
-      if (alphabet.audio.params && alphabet.audio.params.files) { 
+
+      if (alphabet.audio.params && alphabet.audio.params.files) {
           listenContent.show()
           audioContainer.show()
           audio    = H5P.newRunnable(alphabet.audio, id);
@@ -320,7 +323,7 @@ H5P.Alphabet = (function ($) {
       }else{
         alphabet.audioTrue = false
       }
-      
+
 
       if (alphabet.audioFalse.params && alphabet.audioFalse.params.files) {
         audioFalseContainer.show()
@@ -332,10 +335,9 @@ H5P.Alphabet = (function ($) {
       }else{
         alphabet.audioFalse = false
       }
-      
+
 
       videoContent.html("");
-      console.log("alphabet.video", alphabet.video);
       if(alphabet.video.params && alphabet.video.params.sources){
         video  = H5P.newRunnable(alphabet.video, id);
         //video.on('resize', function(){self.trigger('resize');})
@@ -356,7 +358,7 @@ H5P.Alphabet = (function ($) {
       }else{
         alphabet.videoTrue = false
       }
-      
+
 
       if(alphabet.videoFalse.params && alphabet.videoFalse.params.sources){
         videoFalse  = H5P.newRunnable(alphabet.videoFalse, id);
@@ -368,18 +370,18 @@ H5P.Alphabet = (function ($) {
         alphabet.videoFalse = false
       }
 
-      
+
       //videoTrue.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
       //videoFalse.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
 
 
-      /* 
+      /*
       *** video var ise videoyu başlatıyor
       *** video ve ses var ise önce videoyu, video bitince sesi başlatıyor.
       *** sadece ses var ise sesi başlatıyor.
       *** bu kısımda öncelik video da
       */
-      
+
       listenContent.html(playButton)
       playButton.on('click', function(){
         if (alphabet.video) {
@@ -407,13 +409,13 @@ H5P.Alphabet = (function ($) {
         answerContent.append(threeButton)
         checkContent.append(checkButton)
       }
-      
+
       if (alphabet.mode == "one") {
         firstButton.on('click', function(){
           selectAnswer.push("true");
           checkAnswer()
         })
-        
+
         secondButton.on('click', function(){
           selectAnswer.push("false");
           checkAnswer()
@@ -429,20 +431,20 @@ H5P.Alphabet = (function ($) {
 
           checkActiveButton()
         })
-        
+
         secondButton.on('click', function(){
-          
+
           if(selectAnswer[1] == "true"){
             selectAnswer[1] = "false"
           }else{
             selectAnswer[1] = "true"
           }
-     
+
           checkActiveButton()
         })
 
         threeButton.on('click', function(){
-          
+
           if(selectAnswer[2] == "true"){
             selectAnswer[2] = "false"
           }else{
@@ -484,7 +486,7 @@ H5P.Alphabet = (function ($) {
 
 
 
-      /* 
+      /*
       *** cevabı kontrol edelim
       *** cevap için ses ve video var ise önce ses oynasın bitince video oynasın
       *** cevap için sadece ses var ise ses oynasın
@@ -518,6 +520,7 @@ H5P.Alphabet = (function ($) {
         //arkaplana renk atalım
         bgImageContent.css('opacity','0.4');
         $container.css('background', bgColor);
+        $container.css('overflow', "hidden");
         setTimeout(function(){
           bgImageContent.css('opacity','1');
           $container.css('background','#fff');
@@ -533,7 +536,7 @@ H5P.Alphabet = (function ($) {
           "index": selectIndex,
           "description": alphabet.description,
         }
-       
+
         if (selectAnswer.join("-") == questionAnswer) {
           //doğru yaptı demektir
           if (alphabet.audioTrue) {
@@ -548,10 +551,10 @@ H5P.Alphabet = (function ($) {
           }
 
           newAnswer.correct = true;
-               
+
         }else{
 
-          if(alphabet.audioFalse){ 
+          if(alphabet.audioFalse){
             audioFalse.play()
             whichAudio = "falseAudio"
           }else if(!alphabet.audioFalse && alphabet.videoFalse){
@@ -561,27 +564,27 @@ H5P.Alphabet = (function ($) {
             videoTrueContainer.hide()
             videoFalseContainer.show()
           }
-          
+
           newAnswer.correct = false;
         }
-      
+
         if (findIndex(selectIndex,answers) === -1) {
           if (newAnswer.correct) {
             trueScore = trueScore + 1
           }
-            
+
           answers.push(newAnswer)
         }
 
         //select answeri boşaltalım
         selectAnswer = alphabet.mode == "one" ? [] : selectAnswer;
-      } 
+      }
 
 
       function audioPlayStatus(){
         deActiveButton()
       }
-  
+
 
 
       function audioStopStatus(){
@@ -614,10 +617,10 @@ H5P.Alphabet = (function ($) {
       function videoPlayStatus(){
         //video oynuyorsa görün
         videoContent.show()
-        
+
         deActiveButton()
       }
-  
+
 
       function videoStopStatus(){
         videoContent.hide()
@@ -670,7 +673,7 @@ H5P.Alphabet = (function ($) {
       }
       return -1;
     }
-    
+
 
     function animate(selected, animate){
       selected.addClass('animate__animated ' + animate).one('mozAnimationEnd webkitAnimationEnd oanimationend MSAnimationEnd animationend', function(){
@@ -683,22 +686,21 @@ H5P.Alphabet = (function ($) {
     if (self.options.alphabet) {
       setAlphabets()
     }
-    //showResultContent()
+    // showResultContent()
 
     //truevoice bitti
-    trueVoice.addEventListener('ended', function(){
-      console.log("bitti");
-    })
- 
+    // trueVoice.addEventListener('ended', function(){
+    //   console.log("bitti");
+    // })
 
     function getLibraryPath(file){
-      return "/libs/"+self.libraryInfo.machineName+"/" + file
+      return "/libs/"+self.libraryInfo.versionedNameNoSpaces+"/" + file
     }
 
   };
-  
 
 
- 
+
+
   return C;
 })(H5P.jQuery);
