@@ -33,8 +33,8 @@ H5P.Alphabet = (function ($) {
     var audio,audioTrue,audioFalse,video,videoTrue,videoFalse,directiveAudio;
 
     var directive         = self.options.generalSettings.directive
-    var trueVoice  = new Audio(getLibraryPath("true.mp3"));
-    var falseVoice = new Audio(getLibraryPath("false.mp3"));
+    var trueVoice         = new Audio(getLibraryPath("true.mp3"));
+    var falseVoice        = new Audio(getLibraryPath("false.mp3"));
 
 
     // Set class on container to identify it as a greeting card
@@ -95,6 +95,7 @@ H5P.Alphabet = (function ($) {
 
 
     function setNextBackButton(){
+
       directiveButton.show()
       progressContent.show()
       if(isNextButton){
@@ -187,7 +188,6 @@ H5P.Alphabet = (function ($) {
       alphabet.videoTrue    = alphabet.groupTrueAnswer.videoTrue ? alphabet.groupTrueAnswer.videoTrue : null;
       alphabet.audioFalse   = alphabet.groupFalseAnswer.audioFalse ? alphabet.groupFalseAnswer.audioFalse : null;
       alphabet.videoFalse   = alphabet.groupFalseAnswer.videoFalse ? alphabet.groupFalseAnswer.videoFalse : null;
-
 
 
 
@@ -292,6 +292,7 @@ H5P.Alphabet = (function ($) {
           directiveAudio.audio.addEventListener('play', audioPlayStatus)
           directiveAudio.audio.addEventListener('ended', audioStopStatus)
 
+          directiveAudio.stop()
           directiveButton.on('click', function(){
             directiveAudio.play()
           })
@@ -308,6 +309,7 @@ H5P.Alphabet = (function ($) {
           audio.attach(audioContainer);
           audio.audio.addEventListener('play', audioPlayStatus)
           audio.audio.addEventListener('ended', audioStopStatus)
+          audio.stop()
       }else{
         alphabet.audio = false
       }
@@ -320,6 +322,7 @@ H5P.Alphabet = (function ($) {
         audioTrue.attach(audioTrueContainer);
         audioTrue.audio.addEventListener('play', audioPlayStatus)
         audioTrue.audio.addEventListener('ended', audioStopStatus)
+        audioTrue.stop()
       }else{
         alphabet.audioTrue = false
       }
@@ -332,6 +335,7 @@ H5P.Alphabet = (function ($) {
         audioFalse.attach(audioFalseContainer);
         audioFalse.audio.addEventListener('play', audioPlayStatus)
         audioFalse.audio.addEventListener('ended', audioStopStatus)
+        audioFalse.stop()
       }else{
         alphabet.audioFalse = false
       }
@@ -344,7 +348,8 @@ H5P.Alphabet = (function ($) {
         video.attach(videoContainer);
         videoContent.append(videoContainer);
         video.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
-      }else{
+        video.pause()
+    }else{
         alphabet.video = false
       }
 
@@ -355,7 +360,8 @@ H5P.Alphabet = (function ($) {
         videoTrue.attach(videoTrueContainer);
         videoContent.append(videoTrueContainer);
         videoTrue.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
-      }else{
+        videoTrue.pause()
+    }else{
         alphabet.videoTrue = false
       }
 
@@ -366,7 +372,8 @@ H5P.Alphabet = (function ($) {
         videoFalse.attach(videoFalseContainer);
         videoContent.append(videoFalseContainer);
         videoFalse.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
-      }else{
+        videoFalse.pause()
+    }else{
         alphabet.videoFalse = false
       }
 
@@ -694,7 +701,7 @@ H5P.Alphabet = (function ($) {
     // })
 
     function getLibraryPath(file){
-      return "/libs/"+self.libraryInfo.versionedNameNoSpaces+"/" + file
+      return self.getLibraryFilePath("sounds/"+file)
     }
 
   };

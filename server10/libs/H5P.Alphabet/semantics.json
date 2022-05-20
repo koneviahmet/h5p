@@ -68,9 +68,9 @@
               "description": "Sonuç ekranında gösterilecek açıklama",
               "placeholder": "Sonuç ekranı için açıklama ekleyiniz"
             },
-            { 
-              "label": "Arkaplan Resmi", 
-              "name": "bgImage", 
+            {
+              "label": "Arkaplan Resmi",
+              "name": "bgImage",
               "type": "image",
               "description": "Arkaplanda gösterilecek resim seçiniz."
             }
@@ -144,9 +144,9 @@
                 }
               ]
             },
-            { 
-              "label": "Soru Resmi", 
-              "name": "image", 
+            {
+              "label": "Soru Resmi",
+              "name": "image",
               "type": "image",
               "description": "Soru Resmi Açıklama"
             },
@@ -224,7 +224,7 @@
 
           ]
         }
-        
+
       ]
     }
 
