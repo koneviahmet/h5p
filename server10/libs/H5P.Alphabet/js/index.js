@@ -615,6 +615,8 @@ H5P.Alphabet = (function ($) {
             videoFalseContainer.show()
             videoFalse.play()
             whichVideo = "falseVideo"
+          }else{
+            setNextAlphabet()
           }
         }
 
@@ -638,6 +640,8 @@ H5P.Alphabet = (function ($) {
             whichAudio = "questionAudio"
           }
         }else if(whichVideo == "trueVideo"){
+          setNextAlphabet()
+        }else if(whichVideo == "falseVideo"){
           setNextAlphabet()
         }
 
