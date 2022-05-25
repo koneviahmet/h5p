@@ -35,6 +35,7 @@ H5P.Alphabet = (function ($) {
     var directive         = self.options.generalSettings.directive
     var trueVoice         = new Audio(getLibraryPath("true.mp3"));
     var falseVoice        = new Audio(getLibraryPath("false.mp3"));
+    var isRestart         = false
 
 
     // Set class on container to identify it as a greeting card
@@ -60,6 +61,7 @@ H5P.Alphabet = (function ($) {
 
 
     restartButton.on("click", function(){
+      isRestart = true
       answers           = [];
       trueScore         = 0
       selectIndex       = 0
@@ -245,6 +247,7 @@ H5P.Alphabet = (function ($) {
       }
 
 
+
       //Başlangıç animasonları
       animate(firstButton, "animate__backInUp")
       animate(secondButton, "animate__backInUp")
@@ -292,7 +295,25 @@ H5P.Alphabet = (function ($) {
           directiveAudio.audio.addEventListener('play', audioPlayStatus)
           directiveAudio.audio.addEventListener('ended', audioStopStatus)
 
-          directiveAudio.stop()
+          if (isRestart) {
+            directiveAudio.play()
+          }
+
+          if (self.parent) {
+            self.parent.on('changedSlide', function(event){
+              var slideIndex = self.parent.currentSlideIndex
+              // console.log("id", id);
+              // console.log("slideIndex", slideIndex);
+              // console.log("self.parent", self.parent);
+              // console.log("slideIndex", self.parent.elementInstances[slideIndex][0].id);
+              if (self.parent.elementInstances[slideIndex][0].id == id) {
+                directiveAudio.play()
+              }
+
+            })
+          }
+
+          //directiveAudio.stop()
           directiveButton.on('click', function(){
             directiveAudio.play()
           })
