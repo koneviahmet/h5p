@@ -4,7 +4,7 @@
   min-height: 200px;
 }
 
-.can_small_cp{
+.alphabet-can_small_cp{
     position: absolute;
     height: calc(100% - 0.35em);
     width: 100%;
@@ -80,7 +80,7 @@
   padding: 0 4vw;
 }
 
-.alphabet-result-table  th, td {
+.alphabet-result-table-td {
   border: 1px solid #ddd;
   padding: 1vw;
   color: #333;
@@ -125,7 +125,7 @@
   justify-content: center;
 }
 
-.h5p-video{
+.alphabet-video-container{
   height: 32vw !important;
 }
 

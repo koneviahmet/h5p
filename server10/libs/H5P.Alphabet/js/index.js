@@ -57,9 +57,6 @@ H5P.Alphabet = (function ($) {
     progressContent.append(progress.append(progressSpan))
 
 
-
-
-
     restartButton.on("click", function(){
       isRestart = true
       answers           = [];
@@ -143,7 +140,7 @@ H5P.Alphabet = (function ($) {
       for(var i = 0; i < answers.length; i++){
         var correct = answers[i].correct ? "Doğru" : "Yanlış";
         var tr = $('<tr>', {'class': "alphabet-result-table-tr"})
-        tr.append('<td>'+answers[i].description+'</td><td>'+correct+'</td>')
+        tr.append('<td class="alphabet-result-table-td">'+answers[i].description+'</td><td class="alphabet-result-table-td">'+correct+'</td>')
         table.append(tr)
       }
 
@@ -221,9 +218,9 @@ H5P.Alphabet = (function ($) {
       var audioContainer        = $('<div>', {'class': "alphabet-audio-container-" + alphabet.mode}).hide()
       var audioTrueContainer    = $('<div>', {'class': "alphabet-audio-true-container-" + alphabet.mode}).hide()
       var audioFalseContainer   = $('<div>', {'class': "alphabet-audio-false-container-" + alphabet.mode}).hide()
-      var videoContainer        = $('<div>', {'class': "alphabet-video-container-" + alphabet.mode}).hide()
-      var videoTrueContainer    = $('<div>', {'class': "alphabet-video-true-container-" + alphabet.mode}).hide()
-      var videoFalseContainer   = $('<div>', {'class': "alphabet-video-false-container-" + alphabet.mode}).hide()
+      var videoContainer        = $('<div>', {'class': "alphabet-video-container"}).hide()
+      var videoTrueContainer    = $('<div>', {'class': "alphabet-video-container"}).hide()
+      var videoFalseContainer   = $('<div>', {'class': "alphabet-video-container"}).hide()
 
       var playButton      = $('<div>', {'class': "alphabet-play-button-" + alphabet.mode}).html("")
       var firstButton     = $('<div>', {'class': "alphabet-answer-button alphabet-answer-button-first-" + alphabet.mode}).html("")
@@ -280,7 +277,7 @@ H5P.Alphabet = (function ($) {
 
       if(self.parent){
         //course presentetion ile kullanıyor demektir.
-        bgImageContent.addClass("can_small_cp")
+        bgImageContent.addClass("alphabet-can_small_cp")
      }
 
 
@@ -302,11 +299,11 @@ H5P.Alphabet = (function ($) {
           if (self.parent) {
             self.parent.on('changedSlide', function(event){
               var slideIndex = self.parent.currentSlideIndex
-              // console.log("id", id);
               // console.log("slideIndex", slideIndex);
               // console.log("self.parent", self.parent);
               // console.log("slideIndex", self.parent.elementInstances[slideIndex][0].id);
-              if (self.parent.elementInstances[slideIndex][0].id == id) {
+              directiveAudio.stop()
+              if (self.parent.elementInstances[slideIndex][0].subContentId == self.subContentId) {
                 directiveAudio.play()
               }
 
