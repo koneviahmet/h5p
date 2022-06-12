@@ -1,0 +1,7 @@
+{
+  "host": "localhost",
+  "port": 3000,
+  "mainLibraryDir": "h5p-drag-question",
+  "libraryDir": "libs",
+  "contentDir": "content"
+}

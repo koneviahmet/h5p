@@ -1,0 +1,381 @@
+{
+    "groupTrueAnswer": {
+        "audioTrue": {
+            "params": {
+                "playerMode": "minimalistic",
+                "fitToWrapper": false,
+                "controls": true,
+                "autoplay": false,
+                "playAudio": "Ses dosyasını başlat",
+                "pauseAudio": "Ses dosyasını duraklat",
+                "contentName": "Ses",
+                "audioNotSupported": "Tarayıcınız bu ses dosyasını desteklemiyor",
+                "files": [
+                    {
+                        "path": "audios/audio-7tkvmeBc.mp3",
+                        "mime": "audio/mpeg",
+                        "copyright": {
+                            "license": "U"
+                        }
+                    }
+                ]
+            },
+            "library": "H5P.Audio 1.4",
+            "subContentId": "df52c876-7932-4b67-8a3f-9b40ac1effde",
+            "metadata": {
+                "contentType": "Ses (Audio)",
+                "license": "U",
+                "title": "Başlıksız Ses (Audio)",
+                "authors": [],
+                "changes": [],
+                "extraTitle": "Başlıksız Ses (Audio)"
+            }
+        },
+        "videoTrue": {
+            "params": {
+                "visuals": {
+                    "fit": true,
+                    "controls": true
+                },
+                "playback": {
+                    "autoplay": false,
+                    "loop": false
+                },
+                "l10n": {
+                    "name": "Video",
+                    "loading": "Video player loading...",
+                    "noPlayers": "Found no video players that supports the given video format.",
+                    "noSources": "Video is missing sources.",
+                    "aborted": "Media playback has been aborted.",
+                    "networkFailure": "Network failure.",
+                    "cannotDecode": "Unable to decode media.",
+                    "formatNotSupported": "Video format not supported.",
+                    "mediaEncrypted": "Media encrypted.",
+                    "unknownError": "Unknown error.",
+                    "invalidYtId": "Invalid YouTube ID.",
+                    "unknownYtId": "Unable to find video with the given YouTube ID.",
+                    "restrictedYt": "The owner of this video does not allow it to be embedded."
+                },
+                "sources": [
+                    {
+                        "path": "videos/video-cvRmDgiY.mp4",
+                        "mime": "video/mp4",
+                        "copyright": {
+                            "license": "U"
+                        }
+                    }
+                ]
+            },
+            "library": "H5P.Video 1.5",
+            "subContentId": "3f3c8726-da12-4956-8016-1aba7edce014",
+            "metadata": {
+                "contentType": "Video",
+                "license": "U",
+                "title": "Başlıksız Video",
+                "authors": [],
+                "changes": [],
+                "extraTitle": "Başlıksız Video"
+            }
+        }
+    },
+    "groupFalseAnswer": {
+        "audioFalse": {
+            "params": {
+                "playerMode": "minimalistic",
+                "fitToWrapper": false,
+                "controls": true,
+                "autoplay": false,
+                "playAudio": "Ses dosyasını başlat",
+                "pauseAudio": "Ses dosyasını duraklat",
+                "contentName": "Ses",
+                "audioNotSupported": "Tarayıcınız bu ses dosyasını desteklemiyor",
+                "files": [
+                    {
+                        "path": "audios/audio-as6c7x3s.mp3",
+                        "mime": "audio/mpeg",
+                        "copyright": {
+                            "license": "U"
+                        }
+                    }
+                ]
+            },
+            "library": "H5P.Audio 1.4",
+            "subContentId": "fe724a18-e4ad-49fa-8d5e-bd43bbc867ca",
+            "metadata": {
+                "contentType": "Ses (Audio)",
+                "license": "U",
+                "title": "Başlıksız Ses (Audio)",
+                "authors": [],
+                "changes": [],
+                "extraTitle": "Başlıksız Ses (Audio)"
+            }
+        },
+        "videoFalse": {
+            "params": {
+                "visuals": {
+                    "fit": true,
+                    "controls": true
+                },
+                "playback": {
+                    "autoplay": false,
+                    "loop": false
+                },
+                "l10n": {
+                    "name": "Video",
+                    "loading": "Video player loading...",
+                    "noPlayers": "Found no video players that supports the given video format.",
+                    "noSources": "Video is missing sources.",
+                    "aborted": "Media playback has been aborted.",
+                    "networkFailure": "Network failure.",
+                    "cannotDecode": "Unable to decode media.",
+                    "formatNotSupported": "Video format not supported.",
+                    "mediaEncrypted": "Media encrypted.",
+                    "unknownError": "Unknown error.",
+                    "invalidYtId": "Invalid YouTube ID.",
+                    "unknownYtId": "Unable to find video with the given YouTube ID.",
+                    "restrictedYt": "The owner of this video does not allow it to be embedded."
+                },
+                "sources": [
+                    {
+                        "path": "videos/video-pEyx0ADk.mp4",
+                        "mime": "video/mp4",
+                        "copyright": {
+                            "license": "U"
+                        }
+                    }
+                ]
+            },
+            "library": "H5P.Video 1.5",
+            "subContentId": "11e9cb64-199a-4922-b1c7-fb0a7852562e",
+            "metadata": {
+                "contentType": "Video",
+                "license": "U",
+                "title": "Başlıksız Video",
+                "authors": [],
+                "changes": [],
+                "extraTitle": "Başlıksız Video"
+            }
+        }
+    },
+  "scoreShow": "Kontrol et",
+  "submit": "Submit",
+  "tryAgain": "Yeniden dene",
+  "scoreExplanation": "Correct answers give +1 point. Incorrect answers give -1 point. The lowest possible score is 0.",
+  "question": {
+      "settings": {
+          "size": {
+              "width": 620,
+              "height": 310
+          },
+          "background": {
+              "path": "images/image-VfloLLJd.png",
+              "mime": "image/png",
+              "copyright": {
+                  "license": "U"
+              },
+              "width": 1920,
+              "height": 1080
+          }
+      },
+      "task": {
+          "elements": [
+              {
+                  "x": 16.129032258064516,
+                  "y": 16.129032258064516,
+                  "width": 4,
+                  "height": 2,
+                  "dropZones": [],
+                  "type": {
+                      "library": "H5P.AdvancedText 1.1",
+                      "params": {
+                          "text": "<p> alan 1</p>\n"
+                      },
+                      "subContentId": "5df62155-451d-47f5-b9af-6ab66c383ced",
+                      "metadata": {
+                          "contentType": "Metin",
+                          "license": "U",
+                          "title": "Başlıksız Metin",
+                          "authors": [],
+                          "changes": []
+                      }
+                  },
+                  "backgroundOpacity": 100,
+                  "multiple": false
+              },
+              {
+                  "x": 41.935483870967744,
+                  "y": 16.129032258064516,
+                  "width": 5.25,
+                  "height": 1.375,
+                  "dropZones": [],
+                  "type": {
+                      "library": "H5P.AdvancedText 1.1",
+                      "params": {
+                          "text": "<p>alan2</p>\n"
+                      },
+                      "subContentId": "a823e04c-d5bc-4d42-b90f-0015caea5f62",
+                      "metadata": {
+                          "contentType": "Metin",
+                          "license": "U",
+                          "title": "Başlıksız Metin",
+                          "authors": [],
+                          "changes": []
+                      }
+                  },
+                  "backgroundOpacity": 100,
+                  "multiple": false
+              },
+              {
+                  "x": 27.419354838709676,
+                  "y": 64.51612903225806,
+                  "width": 4.201133816282461,
+                  "height": 2.32578125,
+                  "dropZones": [
+                      "0",
+                      "1"
+                  ],
+                  "type": {
+                      "library": "H5P.Image 1.1",
+                      "params": {
+                          "contentName": "Resim",
+                          "file": {
+                              "path": "images/image-pxH4TLUo.png",
+                              "mime": "image/png",
+                              "copyright": {
+                                  "license": "U"
+                              },
+                              "width": 343,
+                              "height": 285
+                          },
+                          "alt": "nane"
+                      },
+                      "subContentId": "69dd6df5-af09-4b78-b152-36a4042f5bb8",
+                      "metadata": {
+                          "contentType": "Görsel",
+                          "license": "U",
+                          "title": "Başlıksız Görsel",
+                          "authors": [],
+                          "changes": []
+                      }
+                  },
+                  "backgroundOpacity": 100,
+                  "multiple": false
+              },
+              {
+                  "x": 46.774193548387096,
+                  "y": 61.29032258064516,
+                  "width": 3.5512911184210525,
+                  "height": 2.95078125,
+                  "dropZones": [
+                      "1",
+                      "0"
+                  ],
+                  "type": {
+                      "library": "H5P.Image 1.1",
+                      "params": {
+                          "contentName": "Resim",
+                          "alt": "alan1",
+                          "file": {
+                              "path": "images/image-JH9KbGgj.png",
+                              "mime": "image/png",
+                              "copyright": {
+                                  "license": "U"
+                              },
+                              "width": 343,
+                              "height": 285
+                          }
+                      },
+                      "subContentId": "e07f230d-99d2-4861-aeb3-13c52b58877a",
+                      "metadata": {
+                          "contentType": "Görsel",
+                          "license": "U",
+                          "title": "Başlıksız Görsel",
+                          "authors": [],
+                          "changes": []
+                      }
+                  },
+                  "backgroundOpacity": 100,
+                  "multiple": false
+              }
+          ],
+          "dropZones": [
+              {
+                  "x": 12.903225806451612,
+                  "y": 25.806451612903224,
+                  "width": 8.125,
+                  "height": 6.25,
+                  "correctElements": [
+                      "2"
+                  ],
+                  "showLabel": false,
+                  "backgroundOpacity": 100,
+                  "tipsAndFeedback": {
+                      "tip": ""
+                  },
+                  "single": false,
+                  "autoAlign": false,
+                  "type": {
+                      "library": "H5P.DragQuestionDropzone 0.1"
+                  },
+                  "label": "<div>alan1</div>\n"
+              },
+              {
+                  "x": 40.32258064516129,
+                  "y": 25.806451612903224,
+                  "width": 8.125,
+                  "height": 5.9375,
+                  "correctElements": [
+                      "3"
+                  ],
+                  "showLabel": false,
+                  "backgroundOpacity": 100,
+                  "tipsAndFeedback": {
+                      "tip": ""
+                  },
+                  "single": false,
+                  "autoAlign": false,
+                  "type": {
+                      "library": "H5P.DragQuestionDropzone 0.1"
+                  },
+                  "label": "<div>alan2</div>\n"
+              }
+          ]
+      }
+  },
+  "overallFeedback": [
+      {
+          "from": 0,
+          "to": 100
+      }
+  ],
+  "behaviour": {
+      "enableRetry": true,
+      "enableCheckButton": true,
+      "showSolutionsRequiresInput": true,
+      "singlePoint": false,
+      "applyPenalties": true,
+      "enableScoreExplanation": true,
+      "dropZoneHighlighting": "dragging",
+      "autoAlignSpacing": 2,
+      "enableFullScreen": false,
+      "showScorePoints": true,
+      "showTitle": true
+  },
+  "grabbablePrefix": "Grabbable {num} of {total}.",
+  "grabbableSuffix": "Placed in dropzone {num}.",
+  "dropzonePrefix": "Dropzone {num} of {total}.",
+  "noDropzone": "No dropzone.",
+  "tipLabel": "Show tip.",
+  "tipAvailable": "Mevcut ipucu",
+  "correctAnswer": "Doğru cevap",
+  "wrongAnswer": "Yanlış cevap",
+  "feedbackHeader": "Feedback",
+  "scoreBarLabel": "You got :num out of :total points",
+  "scoreExplanationButtonLabel": "Show score explanation",
+  "a11yCheck": "Check the answers. The responses will be marked as correct, incorrect, or unanswered.",
+  "a11yRetry": "Retry the task. Reset all responses and start the task over again.",
+  "localize": {
+      "fullscreen": "Tam ekran",
+      "exitFullscreen": "Exit fullscreen"
+  }
+}
