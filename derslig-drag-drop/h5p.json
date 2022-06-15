@@ -7,7 +7,7 @@
     "license": "U",
     "extraTitle": "sürükle bırak",
     "title": "sürükle bırak",
-    "mainLibrary": "H5P.DragQuestion",
+    "mainLibrary": "H5P.DersligDragQuestion",
     "preloadedDependencies": [
         {
             "machineName": "H5P.AdvancedText",
@@ -57,12 +57,12 @@
         {
             "machineName": "H5P.Question",
             "majorVersion": 1,
-            "minorVersion": 5
+            "minorVersion": 4
         },
         {
-            "machineName": "H5P.DragQuestion",
+            "machineName": "H5P.DersligDragQuestion",
             "majorVersion": 1,
-            "minorVersion": 14
+            "minorVersion": 0
         },
         {
             "machineName": "H5P.Audio",

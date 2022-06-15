@@ -1,7 +1,7 @@
 {
   "host": "localhost",
   "port": 3000,
-  "mainLibraryDir": "h5p-drag-question",
+  "mainLibraryDir": "h5p-derslig-drag-question",
   "libraryDir": "libs",
   "contentDir": "content"
 }
