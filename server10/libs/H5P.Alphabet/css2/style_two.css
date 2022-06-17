@@ -1,6 +1,6 @@
 .alphabet-answer-button-check-two{
   position: absolute;
-  top: 28vw;
+  top: 32vw;
   width: 5vw;
   height: 5vw;
   right: 24vw;
@@ -33,9 +33,9 @@
 
 .alphabet-play-button-two{
   position: absolute;
-  top: 23.8vw;
-  width: 4.5vw;
-  height: 4.5vw;
+  top: 25.8vw;
+  width: 5vw;
+  height: 5vw;
   background-color: #09b9c1;
   display: flex;
   align-items: center;
@@ -61,8 +61,8 @@
 }
 
 .alphabet-answer-button-first-two{
-  width: 4vw;
-  height: 4vw;
+  width: 4.5vw;
+  height: 4.5vw;
   background-color: #e84c96;
   display: flex;
   align-items: center;
@@ -78,8 +78,8 @@
 }
 
 .alphabet-answer-button-second-two{
-  width: 4vw;
-  height: 4vw;
+  width: 4.5vw;
+  height: 4.5vw;
   background-color: #e84c96;
   display: flex;
   align-items: center;
@@ -95,8 +95,8 @@
 }
 
 .alphabet-answer-button-three-two{
-  width: 4vw;
-  height: 4vw;
+  width: 4.5vw;
+  height: 4.5vw;
   background-color: #e84c96;
   display: flex;
   align-items: center;
@@ -128,7 +128,7 @@
   position: absolute;
   width: 100%;
   left: 0;
-  top: 32vw;
+  top: 34vw;
   z-index: 1;
   display: flex;
   justify-content: center;
@@ -152,7 +152,7 @@
 .alphabet-image-two{
   position: absolute;
   top: 12vw;
-  max-height: 10vw;
+  max-height: 13vw;
 
 }
 

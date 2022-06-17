@@ -31,7 +31,7 @@ H5P.Alphabet = (function ($) {
     var whichVideo        = null; //questionVideo, trueVideo, falseVideo
     var whichAudio        = null; //questionAudio, trueAudio, falseAudio
     var audio,audioTrue,audioFalse,video,videoTrue,videoFalse,directiveAudio;
-    var whichPlay         = null;
+
     var directive         = self.options.generalSettings.directive
     var trueVoice         = new Audio(getLibraryPath("true.mp3"));
     var falseVoice        = new Audio(getLibraryPath("false.mp3"));
@@ -164,36 +164,6 @@ H5P.Alphabet = (function ($) {
 
 
 
-    if (self.parent) {
-        self.parent.on('changedSlide', function(event){
-            var slideIndex = self.parent.currentSlideIndex
-            // console.log("slideIndex", slideIndex);
-            // console.log("self.parent", self.parent);
-            // console.log("slideIndex", self.parent.elementInstances[slideIndex][0].id);
-
-            //console.log("whichPlay", whichPlay);
-
-            if (whichPlay == "directive") {directiveAudio.stop()}
-            if (whichPlay == "audio") {audio.stop()}
-            if (whichPlay == "audioTrue") {audioTrue.stop()}
-            if (whichPlay == "audioFalse") {audioFalse.stop()}
-            if (whichPlay == "video") {video.pause()}
-            if (whichPlay == "videoTrue") {videoTrue.pause()}
-            if (whichPlay == "videoFalse") {videoFalse.pause()}
-
-            if (self.parent.elementInstances[slideIndex][0].subContentId == self.subContentId) {
-                if (whichPlay == "directive") {directiveAudio.play()}
-                if (whichPlay == "audio") {audio.play()}
-                if (whichPlay == "audioTrue") {audioTrue.play()}
-                if (whichPlay == "audioFalse") {audioFalse.play()}
-                if (whichPlay == "video") {video.play()}
-                if (whichPlay == "videoTrue") {videoTrue.play()}
-                if (whichPlay == "videoFalse") {videoFalse.play()}
-            }
-
-        })
-    }
-
     //setalphabets
     function setAlphabets(){
       setNextBackButton()
@@ -313,21 +283,31 @@ H5P.Alphabet = (function ($) {
 
       //sesler
       if (directive.params && directive.params.files) {
-          whichPlay = "directive"
           listenContent.show()
           audioContainer.show()
 
           directiveAudio    = H5P.newRunnable(directive, id);
           //directiveAudio.on('resize', function(){ self.trigger('resize');})
           directiveAudio.attach(audioContainer);
-          directiveAudio.audio.addEventListener('play', function(){
-            audioPlayStatus()
-            whichPlay = "directive"
-          })
+          directiveAudio.audio.addEventListener('play', audioPlayStatus)
           directiveAudio.audio.addEventListener('ended', audioStopStatus)
 
           if (isRestart) {
             directiveAudio.play()
+          }
+
+          if (self.parent) {
+            self.parent.on('changedSlide', function(event){
+              var slideIndex = self.parent.currentSlideIndex
+              // console.log("slideIndex", slideIndex);
+              // console.log("self.parent", self.parent);
+              // console.log("slideIndex", self.parent.elementInstances[slideIndex][0].id);
+              directiveAudio.stop()
+              if (self.parent.elementInstances[slideIndex][0].subContentId == self.subContentId) {
+                directiveAudio.play()
+              }
+
+            })
           }
 
           //directiveAudio.stop()
@@ -345,10 +325,7 @@ H5P.Alphabet = (function ($) {
           audio    = H5P.newRunnable(alphabet.audio, id);
           //audio.on('resize', function(){ self.trigger('resize');})
           audio.attach(audioContainer);
-          audio.audio.addEventListener('play', function(){
-            audioPlayStatus()
-            whichPlay = "audio"
-          })
+          audio.audio.addEventListener('play', audioPlayStatus)
           audio.audio.addEventListener('ended', audioStopStatus)
           audio.stop()
       }else{
@@ -361,10 +338,7 @@ H5P.Alphabet = (function ($) {
         audioTrue = H5P.newRunnable(alphabet.audioTrue, id);
         //audioTrue.on('resize', function(){self.trigger('resize');})
         audioTrue.attach(audioTrueContainer);
-        audioTrue.audio.addEventListener('play', function(){
-            audioPlayStatus()
-            whichPlay = "audioTrue"
-        })
+        audioTrue.audio.addEventListener('play', audioPlayStatus)
         audioTrue.audio.addEventListener('ended', audioStopStatus)
         audioTrue.stop()
       }else{
@@ -377,11 +351,7 @@ H5P.Alphabet = (function ($) {
         audioFalse = H5P.newRunnable(alphabet.audioFalse, id);
         //audioFalse.on('resize', function(){self.trigger('resize');})
         audioFalse.attach(audioFalseContainer);
-        audioFalse.audio.addEventListener('play',function(){
-            audioPlayStatus()
-            whichPlay = "audioFalse"
-        })
-
+        audioFalse.audio.addEventListener('play', audioPlayStatus)
         audioFalse.audio.addEventListener('ended', audioStopStatus)
         audioFalse.stop()
       }else{
@@ -395,10 +365,7 @@ H5P.Alphabet = (function ($) {
         //video.on('resize', function(){self.trigger('resize');})
         video.attach(videoContainer);
         videoContent.append(videoContainer);
-        video.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){
-            videoPlayStatus()
-            whichPlay = "video"
-        }});
+        video.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
         video.pause()
     }else{
         alphabet.video = false
@@ -410,10 +377,7 @@ H5P.Alphabet = (function ($) {
         //videoTrue.on('resize', function(){self.trigger('resize');})
         videoTrue.attach(videoTrueContainer);
         videoContent.append(videoTrueContainer);
-        videoTrue.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){
-            videoPlayStatus()
-            whichPlay = "videoTrue"
-        }});
+        videoTrue.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
         videoTrue.pause()
     }else{
         alphabet.videoTrue = false
@@ -425,10 +389,7 @@ H5P.Alphabet = (function ($) {
         //videoFalse.on('resize', function(){self.trigger('resize');})
         videoFalse.attach(videoFalseContainer);
         videoContent.append(videoFalseContainer);
-        videoFalse.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){
-            videoPlayStatus()
-            whichPlay = "videoFalse"
-        }});
+        videoFalse.on('stateChange', function(e){if (e.data === 0) {videoStopStatus()}else if (e.data === 1){videoPlayStatus()}});
         videoFalse.pause()
     }else{
         alphabet.videoFalse = false
@@ -646,15 +607,12 @@ H5P.Alphabet = (function ($) {
 
 
       function audioPlayStatus(){
-        //console.log("başladı", whichPlay);
         deActiveButton()
       }
 
 
 
       function audioStopStatus(){
-        //console.log("stop status audio");
-        whichPlay = null
         activeButton()
         if(whichAudio == "trueAudio"){
           if(alphabet.videoTrue){
@@ -679,6 +637,7 @@ H5P.Alphabet = (function ($) {
             setNextAlphabet()
           }
         }
+
       }
 
 
@@ -691,8 +650,6 @@ H5P.Alphabet = (function ($) {
 
 
       function videoStopStatus(){
-        //console.log("stop status video");
-        whichPlay = null
         videoContent.hide()
         activeButton()
         if (whichVideo == "questionVideo") {
@@ -705,10 +662,10 @@ H5P.Alphabet = (function ($) {
         }else if(whichVideo == "falseVideo"){
           setNextAlphabet()
         }
+
       }
 
       function activeButton(){
-        //console.log("aktif button aktif");
         playButton.removeClass('de-active-button-'+ alphabet.mode);
         firstButton.removeClass('de-active-button-'+ alphabet.mode);
         secondButton.removeClass('de-active-button-'+ alphabet.mode);
@@ -717,9 +674,7 @@ H5P.Alphabet = (function ($) {
         directiveButton.removeClass('de-active-button-'+ alphabet.mode);
       }
 
-
       function deActiveButton(){
-        //console.log("deactive button aktif");
         playButton.addClass('de-active-button-'+ alphabet.mode);
         firstButton.addClass('de-active-button-'+ alphabet.mode);
         secondButton.addClass('de-active-button-'+ alphabet.mode);

@@ -2,7 +2,7 @@
 
 .alphabet-play-button-one{
   position: absolute;
-  top: 24vw;
+  top: 28vw;
   width: 5vw;
   height: 5vw;
   background-color: #09b9c1;
@@ -19,8 +19,8 @@
 }
 
 .alphabet-answer-button-first-one{
-  width: 4.5vw;
-  height: 4.5vw;
+  width: 5.5vw;
+  height: 5.5vw;
   background-color: #7abe26;
   display: flex;
   align-items: center;
@@ -36,8 +36,8 @@
 }
 
 .alphabet-answer-button-second-one{
-  width: 4.5vw;
-  height: 4.5vw;
+  width: 5.5vw;
+  height: 5.5vw;
   background-color: #EB5353;
   display: flex;
   align-items: center;
@@ -103,11 +103,13 @@
   position: absolute;
   width: 100%;
   left: 0;
-  top: 32vw;
+  top: 35vw;
   z-index: 1;
   display: flex;
   justify-content: center;
 }
+
+
 
 
 /* soru resmi */
@@ -124,8 +126,8 @@
 
 .alphabet-image-one{
   position: absolute;
-  top: 11.4vw;
-  max-height: 11vw;
+  top: 13.4vw;
+  max-height: 14vw;
 
 }
 
