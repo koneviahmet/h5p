@@ -84,22 +84,23 @@
   border: 1px solid #ddd;
   padding: 1vw;
   color: #333;
-  font-size: 2.6vw;
+  font-size: 1.8vw;
 }
 
 .alphabet-progress-content{
   position: absolute;
-  top: 0;
+  bottom: 8vw;
   left: 0;
-  height: 2vw;
-  width: 100%;
+  height: 0.4vw;
+  margin: 0 20%;
+  width: 60%;
   background-color: #ccc;
   z-index: 3;
 }
 
 .alphabet-progress{
   padding: 0 0.2vw;
-  height: 2vw;
+  height: 100%;
   position:absolute;
   overflow: hidden;
   min-width: 2%;
@@ -110,6 +111,7 @@
 .alphabet-progress-span{
   color: #fff;
   font-size: 100%;
+  display: none;
 }
 
 .alphabet-video-content{

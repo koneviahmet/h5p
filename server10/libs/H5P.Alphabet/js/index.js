@@ -12,6 +12,9 @@ H5P.Alphabet = (function ($) {
     }, options);
     // Keep provided id.
     this.id = id;
+    this.MAX_SCORE = options.alphabet.length
+    this.SCORE = 1
+    this.answers           = [];
   };
 
   /**
@@ -25,8 +28,7 @@ H5P.Alphabet = (function ($) {
     var id                = this.id
     var selectIndex       = 0;
     var trueScore         = 0;
-    var is_progress       = false
-    var answers           = [];
+    var is_progress       = true
     var isNextButton      = false
     var whichVideo        = null; //questionVideo, trueVideo, falseVideo
     var whichAudio        = null; //questionAudio, trueAudio, falseAudio
@@ -57,17 +59,19 @@ H5P.Alphabet = (function ($) {
     progressContent.append(progress.append(progressSpan))
 
 
-    restartButton.on("click", function(){
-      isRestart = true
-      answers           = [];
-      trueScore         = 0
-      selectIndex       = 0
-      mainContent.show()
-      resultContent.hide()
-      headerContent.hide()
-      setAlphabets()
-    })
 
+
+    C.prototype.restartFNC = function(){
+        isRestart         = true
+        this.answers      = [];
+        trueScore         = 0
+        selectIndex       = 0
+        mainContent.show()
+        resultContent.hide()
+        headerContent.hide()
+        setAlphabets()
+    }
+    restartButton.on("click", self.restartFNC)
 
     headerContent.append(restartButton)
     $container.append(headerContent);
@@ -118,6 +122,7 @@ H5P.Alphabet = (function ($) {
 
 
     function showResultContent(){
+      self.triggerXAPIAnswered()
       nextBackButtonContent.hide()
       directiveButton.hide()
       progressContent.hide()
@@ -134,13 +139,13 @@ H5P.Alphabet = (function ($) {
       //   "correct": "true"
       // }
 
-      // answers.push(newAnswer)
+      // this.answers.push(newAnswer)
 
 
-      for(var i = 0; i < answers.length; i++){
-        var correct = answers[i].correct ? "Doğru" : "Yanlış";
+      for(var i = 0; i < self.answers.length; i++){
+        var correct = self.answers[i].correct ? "Doğru" : "Yanlış";
         var tr = $('<tr>', {'class': "alphabet-result-table-tr"})
-        tr.append('<td class="alphabet-result-table-td">'+answers[i].description+'</td><td class="alphabet-result-table-td">'+correct+'</td>')
+        tr.append('<td class="alphabet-result-table-td">'+self.answers[i].description+'</td><td class="alphabet-result-table-td">'+correct+'</td>')
         table.append(tr)
       }
 
@@ -181,7 +186,9 @@ H5P.Alphabet = (function ($) {
             if (whichPlay == "videoTrue") {videoTrue.pause()}
             if (whichPlay == "videoFalse") {videoFalse.pause()}
 
-            if (self.parent.elementInstances[slideIndex][0].subContentId == self.subContentId) {
+
+
+            if (self.parent.elementInstances[slideIndex] && self.parent.elementInstances[slideIndex][0].subContentId == self.subContentId) {
                 if (whichPlay == "directive") {directiveAudio.play()}
                 if (whichPlay == "audio") {audio.play()}
                 if (whichPlay == "audioTrue") {audioTrue.play()}
@@ -632,12 +639,12 @@ H5P.Alphabet = (function ($) {
           newAnswer.correct = false;
         }
 
-        if (findIndex(selectIndex,answers) === -1) {
+        if (findIndex(selectIndex,self.answers) === -1) {
           if (newAnswer.correct) {
             trueScore = trueScore + 1
           }
 
-          answers.push(newAnswer)
+          self.answers.push(newAnswer)
         }
 
         //select answeri boşaltalım
@@ -740,6 +747,11 @@ H5P.Alphabet = (function ($) {
     }
 
     var findIndex = function(key,arr) {
+      if (!arr) {
+        return -1
+      }
+
+
       for(var i=0, j=arr.length; i<j; i++) {
           if(arr[i].index === key) {
               return i;
@@ -771,7 +783,110 @@ H5P.Alphabet = (function ($) {
       return self.getLibraryFilePath("sounds/"+file)
     }
 
+
+    //this.triggerXAPIAnswered()
+
+
   };
+
+
+    /**
+     *
+     * xAPI
+     */
+
+    C.prototype.triggerXAPIAnswered = function () {
+        var xAPIEvent = this.createXAPIEventTemplate('answered');
+        this.addQuestionToXAPI(xAPIEvent);
+        this.addResponseToXAPI(xAPIEvent);
+        this.trigger(xAPIEvent);
+    };
+
+
+    C.prototype.addQuestionToXAPI = function(xAPIEvent) {
+    var definition = xAPIEvent.getVerifiedStatementValue(['object', 'definition']);
+    definition.description = {
+        // Remove tags, must wrap in div tag because jQuery 1.9 will crash if the string isn't wrapped in a tag.
+        'en-US': "deneme"
+    };
+    definition.type = 'http://adlnet.gov/expapi/activities/cmi.interaction';
+    };
+
+
+    C.prototype.addResponseToXAPI = function(xAPIEvent) {
+        xAPIEvent.setScoredResult(this.MAX_SCORE, this.MAX_SCORE, self, true, true);
+    };
+
+
+    C.prototype.toggleButtonVisibility = function (buttonId, visible) {
+        if (visible === true) {
+        self.showButton(buttonId);
+        }
+        else {
+        self.hideButton(buttonId);
+        }
+    };
+
+
+    C.prototype.toggleButtonState = function (state) {
+        toggleButtonVisibility(Button.SHOW_SOLUTION, state === State.FINISHED_WRONG);
+        toggleButtonVisibility(Button.CHECK, state === State.ONGOING);
+        toggleButtonVisibility(Button.TRYAGAIN, state === State.FINISHED_WRONG || state === State.INTERNAL_SOLUTION);
+    };
+
+    C.prototype.getCurrentState = function () {
+        return {answer: true};
+    };
+
+    C.prototype.getScore = function () {
+        var newScore = 0
+
+        for(var i = 0; i < this.answers.length; i++){
+            if (this.answers[i].correct) {
+                newScore++
+            }
+        }
+
+        return newScore;
+    };
+
+
+    C.prototype.getMaxScore = function () {
+        return this.MAX_SCORE;
+    };
+
+
+    C.prototype.getTitle = function () {
+        return H5P.createTitle(this.options.alphabet.map(i => i.description != undefined ? i.description : "Açıklama").join(", "));
+    };
+
+
+    C.prototype.showSolutions = function (internal) {
+        //console.log("cevapları göster");
+    };
+
+
+    C.prototype.resetTask = function () {
+        this.restartFNC()
+    };
+
+
+    C.prototype.addQuestionToXAPI = function(xAPIEvent) {
+        var definition = xAPIEvent.getVerifiedStatementValue(['object', 'definition']);
+        $.extend(definition, this.getxAPIDefinition());
+    };
+
+
+    C.prototype.getxAPIDefinition = function () {
+        var definition = {};
+        definition.interactionType = 'true-false';
+        definition.type = 'http://adlnet.gov/expapi/activities/cmi.interaction';
+        definition.description = {
+        'en-US': "deneme"
+        };
+        return definition;
+    };
+
 
 
 
